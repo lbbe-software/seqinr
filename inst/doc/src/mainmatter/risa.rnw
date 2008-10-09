@@ -77,11 +77,11 @@ find.amo <- function(amo, myseq, verbose = FALSE, nmiss = 3){
 Example with a random sequence:
 
 <<essai,fig=T,width=8,height=4>>=
-c2s(sample(s2c("acgt"),1000,rep=T))->rseq
+c2s(sample(s2c("acgt"), 500, rep=T))->rseq
 find.amo(amo1,rseq,verb=T)
 @ 
 
-Now insert a perfect target :
+Now insert a perfect target at position 100 in this random sequence:
 
 <<essai2,fig=T,width=8,height=4>>=
 substr(rseq,100,100+nchar(amo1)) <- amo1
@@ -203,12 +203,15 @@ mn2risa("AE005174", amo1, amo2,verb=T)
 We could work in fact at any taxonomical level, but suppose here that
 we are interested by the species level. All we have to do is to find
 the list of fragment where there is at least one 16S and one 23S gene.
-We use here all the power of ACNUC query language.
+We use here all the power of ACNUC query language. Note that species
+names may contain special characters so that we protect it here with
+quotes.
 
 <<sp2risa>>=
 sp2risa <- function(sp, amo1, amo2, verbose = TRUE){
 	if(verbose) print(paste("sp2risa -->", sp))
-	query("cursp", paste("sp=", sp), virtual=TRUE)
+	# protect with quotes
+	query("cursp", paste("\"sp=", sp, "\"", sep=""), virtual=TRUE)
 	query("res1", "cursp ET T=RRNA ET K=16S@", virtual=TRUE)
 	query("res1", "ME res1",virtual=TRUE)
 	query("res2","cursp ET T=RRNA ET K=23S@",virtual=TRUE)
