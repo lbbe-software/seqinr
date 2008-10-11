@@ -23,6 +23,10 @@ of the seqinr sources on R-forge.
 
 \begin{itemize}
 
+\item Function \texttt{query()} now allows a missing \texttt{listname}
+  argument. In this case, \texttt{list1} is used to store the
+  result.
+
 \item Function \texttt{autosocket()} has been changed to behave more
   friendly with outdated R versions. This is essentially a backward
   compatibility issue that will not be maintained in the future.
