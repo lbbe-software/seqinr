@@ -100,11 +100,15 @@ We work thereafter with its complementary sequence as follows:
 
 \section{Finding a primer location}
 
-We want to fing a substring allowing for mismatches (say 3). Let's
+We want to fing a substring allowing for mismatches (say 3)
+but no indels\footnote{It would be better to code this as
+a regular expression to use standard tools but I don't know how 
+to do this.}. Let's
 write a function for this. Here we just use a moving window to count the
 number of matches for all positions and return the one with the
 maximum value. If the maximum number of matches if not enough, \texttt{NA}
-is returned instead.
+is returned instead. In the verbose the function produces a plot
+to check that everything is OK.
 
 \begin{Schunk}
 \begin{Sinput}
@@ -136,17 +140,18 @@ Example with a random sequence:
 
 \begin{Schunk}
 \begin{Sinput}
- rseq <- c2s(sample(s2c("acgt"), 1000, rep = T))
- find.amo(amo1, rseq, verb = T)
+ rseq <- c2s(sample(s2c("acgt"), 500, rep = T))
+ find.amo(amo1, rseq, verbose = TRUE)
 \end{Sinput}
 \begin{Soutput}
-[1] "8 mismatch"
+[1] "9 mismatch"
 [1] NA
 \end{Soutput}
 \end{Schunk}
 \includegraphics{../figs/risa-essai}
 
-Now insert a perfect target :
+Now insert a perfect target for the first primer at position 100 in this random sequence
+to check that everything is OK :
 
 \begin{Schunk}
 \begin{Sinput}
@@ -223,7 +228,7 @@ Looks OK for me.
 \begin{minipage}{\textwidth}
 \centering
 \includegraphics[width=\textwidth]{../figs/fig1RanjardL2000}
-\caption{Screenshort of a part of figure 1 in \cite{RanjardL2000} showing the observed range
+\caption{Screenshot of a part of figure 1 in \cite{RanjardL2000} showing the observed range
 of ribosomal intergenic space length in bacterial species (n = 428).}
 \label{fig1RanjardL2000}
 \end{minipage}
@@ -235,57 +240,97 @@ By sequence fragment we mean here a genbank entry accessed
 by its name (\texttt{mnemo} in the code thereafter).
 There could be more than one rRNA operon in the sequence fragment
 but there should be the same number of 16S and 23S genes.
-There is a maximum length to avoid problems when genes are
+There is a maximum length to the 16S-23S segemnt to avoid problems when genes are
 not annotated in consecutive order, in this case \texttt{NA}
 is returned. The default maximum length of 10 kb is conservative,
 the maximum observed value is 1.5 kb (\textit{cf} Fig. \ref{fig1RanjardL2000}),
 some post-processing of the results is most likely necessary to remove outliers.
+In case of problem during the query process the value \texttt{-Inf} is
+returned to denote this.
 
 \begin{Schunk}
 \begin{Sinput}
- mn2risa <- function(mnemo, amo1, amo2, maxlength = 10000, 
-     verbose = FALSE) {
-     if (verbose) 
-         print(paste("mn2risa -->", mnemo))
-     query("frag", paste("N=", mnemo))
-     query("frag16S", "frag ET T=RRNA ET K=16S@")
-     if (verbose) 
-         print(paste("n 16S = ", frag16S$nelem))
-     query("frag23S", "frag ET T=RRNA ET K=23S@")
-     if (verbose) 
-         print(paste("n 23S = ", frag23S$nelem))
-     if (frag16S$nelem != frag23S$nelem) 
-         return(NA)
-     n <- frag16S$nelem
-     loc1 <- getLocation(frag16S)
-     loc2 <- getLocation(frag23S)
-     risa <- numeric(n)
-     for (i in seq_len(n)) {
-         coords <- c(loc1[[i]], loc2[[i]])
-         if (coords[1] < coords[3]) {
-             forward <- TRUE
-             if (verbose) 
-                 print("forward")
-         }
-         else {
-             forward <- FALSE
-             if (verbose) 
-                 print("bacward")
-         }
-         if (verbose) 
-             print(coords)
-         xmin <- min(coords)
-         xmax <- max(coords)
-         if (xmax - xmin > maxlength) 
-             return(NA)
-         myseq <- as.character(getFrag(frag$req[[1]], xmin, 
-             xmax))
-         if (verbose) 
-             print(paste("nchar myseq = ", nchar(myseq)))
-         risa[i] <- risa.length(myseq, amo1, amo2, forward, 
-             verbose = F)$res
+ mn2risa <- function(mnemo, amo1, amo2, maxlength = 10000, verbose = FALSE){
+   if(verbose) print(paste("mn2risa -->", mnemo))
+   #
+   # Make a list on server with the requested entry name:
+   #
+   try.res <- try(query("frag", paste("N=", mnemo)))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # From this make a list with all subsequences that are rRRA genes
+   # with a keyword containing 16S anywhere in it:
+   #
+   try.res <- try(query("frag16S", "frag ET T=RRNA ET K=@16S@"))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   if(verbose) print(paste("n 16S = ", frag16S$nelem))
+   #
+   # The same but with 23S anywhere in keywords:
+   #
+   try.res <- query("frag23S", "frag ET T=RRNA ET K=@23S@")
+   if(verbose) print(paste("n 23S = ", frag23S$nelem))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # We want the same number of 16S and 23S rRNA in the entry:
+   #
+   if(frag16S$nelem != frag23S$nelem) return(NA)
+   #
+   # We retrieve the location of all 16S and 23S rRNA in this genbank entry:
+   #
+   try.res <- try(loc16S <- getLocation(frag16S))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   try.res <- try(loc23S <- getLocation(frag23S))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # The result is a vector with as many elements as rRNA operons
+   #
+   n <- frag16S$nelem
+   risa <- numeric(n)
+   #
+   # We loop now over all operons:
+   #
+   for(i in seq_len(n)){
+     coord.16S <- loc16S[[i]]
+     coord.23S <- loc23S[[i]]
+     #
+     # Test if the genes are in the forward or reverse strand:
+     #
+     if(coord.16S[1] < coord.23S[1]){
+       forward <- TRUE
+       if(verbose) print("forward")
+     } else {
+       forward <- FALSE	
+       if(verbose) print("bacward")
      }
-     return(risa)
+     if(verbose) print(paste("16S at", coord.16S[1], coord.16S[2], "23S at", coord.23S[1], coord.23S[2]))
+     #
+     # Check that our operon is not too long:
+     #
+     xmin <- min(coord.16S, coord.23S)
+     xmax <- max(coord.16S, coord.23S)
+     if(xmax - xmin > maxlength){
+       warning(paste("Operon too long found, NA returned", mnemo, i))
+       risa[i] <- NA
+       next
+     }
+     #
+     # Get just the sequence of the operon from the genbank entry. This
+     # is the only place where we are retrieving sequence data. This
+     # return an objet of class SeqFrag that we cast into a simple
+     # character string.
+     #
+     try.res <- try(myseq <- as.character(getFrag(frag$req[[1]], xmin, xmax)))
+     if(inherits(try.res, "try-error")){
+       risa[i] <- -Inf
+       next
+     }
+     if(verbose) print(paste("nchar myseq = ", nchar(myseq)))
+     #
+     # Compute the IGS length on this operon
+     #
+     risa[i] <- risa.length(myseq, amo1, amo2, forward, verbose = F)$res
+   }
+   return(risa)    
  }
 \end{Sinput}
 \end{Schunk}
@@ -300,7 +345,7 @@ Example with a fragment with one 16S and two 23S genes,
 \end{Schunk}
 
 Example with a fragment with seven 16S and seven 23S genes,
-the seven RISA length are returned :
+the seven IGS lengths are returned :
 
 \begin{Schunk}
 \begin{Sinput}
@@ -313,28 +358,55 @@ the seven RISA length are returned :
 We could work in fact at any taxonomical level, but suppose here that
 we are interested by the species level. All we have to do is to find
 the list of fragment where there is at least one 16S and one 23S gene.
-We use here all the power of ACNUC query language.
+We use here all the power of ACNUC query language. 
+
 
 \begin{Schunk}
 \begin{Sinput}
- sp2risa <- function(sp, amo1, amo2, verbose = TRUE) {
-     if (verbose) 
-         print(paste("sp2risa -->", sp))
-     query("cursp", paste("sp=", sp), virtual = TRUE)
-     query("res1", "cursp ET T=RRNA ET K=16S@", virtual = TRUE)
-     query("res1", "ME res1", virtual = TRUE)
-     query("res2", "cursp ET T=RRNA ET K=23S@", virtual = TRUE)
-     query("res2", "ME res2", virtual = TRUE)
-     query("res3", "res1 ET res2")
-     if (verbose) 
-         print(paste("number of mother sequences = ", res3$nelem))
-     seqnames <- getName(res3)
-     result <- vector("list", res3$nelem)
-     names(result) <- seqnames
-     for (i in seq_len(res3$nelem)) {
-         result[[i]] <- mn2risa(seqnames[i], amo1, amo2, verbose = verbose)
-     }
-     return(result)
+ sp2risa <- function(sp, amo1, amo2, verbose = TRUE){
+   if(verbose) print(paste("sp2risa -->", sp))
+   #
+   # protect query with quotes, get all sequences attached the specie
+   #  
+   try.res <- try(query("cursp", paste("\"sp=", sp, "\"", sep=""), virtual=TRUE))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # Get all 16S rRNA genes:
+   #
+   try.res <- try(query("res1", "cursp ET T=RRNA ET K=@16S@", virtual=TRUE))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # Replace by mother sequences:
+   #
+   try.res <- try(query("res1", "ME res1", virtual=TRUE))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # Get all 23S rRNA genes:
+   #
+   try.res <- try(query("res2","cursp ET T=RRNA ET K=@23S@", virtual=TRUE))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # Replace by mother sequences:
+   #
+   try.res <- try(query("res2","ME res2",virtual=TRUE))
+   if(inherits(try.res, "try-error")) return(-Inf)
+   #
+   # Keep only sequences that contains at least one 16S and 23S:
+   #
+   try.res <- try(query("res3", "res1 ET res2"))
+   if(inherits(try.res, "try-error")) return(-Inf)
+ 
+   if(verbose) print(paste("number of mother sequences = ", res3$nelem))
+   seqnames <- getName(res3)
+   result <- vector("list", res3$nelem)
+   names(result) <- seqnames
+   #
+   # Loop over all sequences:
+   #
+   for(i in seq_len(res3$nelem)){
+     result[[i]] <- mn2risa(seqnames[i], amo1, amo2, verbose = verbose)
+   }
+   return(result)
  }
 \end{Sinput}
 \end{Schunk}
@@ -342,19 +414,57 @@ We use here all the power of ACNUC query language.
 
 \section{Loop over many species}
 
-We loop now over all bacterial species in genbank. As this is long, we run
+\subsection{Preprocessing: select interesting species}
+
+We select bacterial species for which there is at least one
+entry with at least one 16S and one 23S gene:
+
+\begin{Schunk}
+\begin{Sinput}
+ #
+ # Choose a bank:
+ #
+ choosebank("genbank")
+ #
+ # Select all bacterial sequences with 23S:
+ #
+ query("allbact", "SP=bacteria ET T=RRNA ET K=@23S@", virtual = TRUE)
+ #
+ # Replace by mother sequences:
+ #
+ query("allbact", "ME allbact", virtual = TRUE)
+ #
+ # Look for 16S in them:
+ #
+ query("allbact", "allbact ET T=RRNA ET K=@16S@", virtual = TRUE)
+ #
+ # Get species names:
+ #
+ query("splist", "PS allbact")
+ #
+ # Save them into a file:
+ #
+ splist <- getName(splist)
+ head(splist)
+ length(splist)
+ save(splist, file = "splist.RData")
+\end{Sinput}
+\end{Schunk}
+
+\subsection{Loop over our specie list}
+
+We loop now over our specie list. As this is long, we run
 it overnight in batch, saving results on the fly to spy them.
 When the species name is a single word this is most likely a genus,
 then to avoid redundancy in computation with the underlying species,
 it is not considered and a \texttt{+Inf} value is set. An empty list
 means that no fragment with both 16S and 23S genes were found. A
 missing value \texttt{NA} means that the PCR primers were not found.
+A \texttt{-Inf} value means a problem while querying the server.
 
 \begin{Schunk}
 \begin{Sinput}
- query("all", "sp=bacteria", virtual = TRUE)
- query("allsp", "ps all")
- splist <- getName(allsp)
+ load("splist.RData")
  resultat <- vector("list", length(splist))
  names(resultat) <- splist
  i <- 1
@@ -375,6 +485,71 @@ missing value \texttt{NA} means that the PCR primers were not found.
 
 \section{Playing with results}
 
+\begin{Schunk}
+\begin{Sinput}
+ load("resultat.RData")
+\end{Sinput}
+\end{Schunk}
+
+There shouldn't be any null entries in results, except if we are
+spying them.
+
+\begin{Schunk}
+\begin{Sinput}
+ lesnull <- (unlist(lapply(resultat, is.null)))
+ (nnull <- sum(lesnull))
+\end{Sinput}
+\begin{Soutput}
+[1] 1901
+\end{Soutput}
+\begin{Sinput}
+ resultat <- resultat[!lesnull]
+\end{Sinput}
+\end{Schunk}
+
+Show how many fragments we have by species :
+
+\begin{Schunk}
+\begin{Sinput}
+ table(unlist(lapply(resultat, length)))
+\end{Sinput}
+\begin{Soutput}
+  1   2   3   8  22  25  69 107 
+236  10   1   1   1   1   1   1 
+\end{Soutput}
+\end{Schunk}
+
+How many IGS do we have there:
+
+\begin{Schunk}
+\begin{Sinput}
+ brut <- unlist(resultat)
+ length(brut)
+\end{Sinput}
+\begin{Soutput}
+[1] 513
+\end{Soutput}
+\begin{Sinput}
+ brut2 <- brut[!is.na(brut)]
+ length(brut2)
+\end{Sinput}
+\begin{Soutput}
+[1] 172
+\end{Soutput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+ tab <- table(brut2)
+ x <- as.numeric(unlist(dimnames(tab)))
+ y <- tab
+ plot(x, y, type = "h", ylim = c(0, max(y)), main = "Global distribution of IGS length", 
+     las = 1, ylab = "Count", xlab = "Size in bp")
+ dst <- density(brut2, adj = 0.1)
+ lines(dst$x, dst$y * max(y)/max(dst$y), col = "red", xpd = NA)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{../figs/risa-bplot}
 
 
 \section*{Session Informations}
@@ -395,7 +570,7 @@ This part was compiled under the following \Rlogo{}~environment:
 There were two compilation steps:
 
 \begin{itemize}
-  \item \Rlogo{} compilation time was: Wed Oct  8 10:17:42 2008
+  \item \Rlogo{} compilation time was: Sat Oct 11 18:42:20 2008
   \item \LaTeX{} compilation time was: \today
 \end{itemize}
 
