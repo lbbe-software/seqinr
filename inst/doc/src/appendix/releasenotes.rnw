@@ -16,12 +16,14 @@ most recent on top.
 
 \section*{2.0 series}
 
-The 2.0 series started in summer 2008 along with the moving
-of the seqinr sources on R-forge.
-
 \subsection*{release 2.0-0}
 
 \begin{itemize}
+
+\item Objects from class \texttt{qaw} created after a call to the
+  \texttt{query()} function have gained a new generic \texttt{print}
+  method to focus on the most important information: number
+  of sequences in the list, list type and the corresponding request.
 
 \item Function \texttt{query()} now allows a missing \texttt{listname}
   argument. In this case, \texttt{list1} is used to store the
@@ -39,6 +41,9 @@ of the seqinr sources on R-forge.
   allowed but a warning is issued.
 
 \end{itemize}
+
+The 2.0 series started in summer 2008 along with the moving
+of the seqinr sources on R-forge.
 
 \section*{1.1 series}
 
