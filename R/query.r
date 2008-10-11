@@ -6,7 +6,13 @@
 
 query <- function(listname, query, socket = autosocket(), invisible = TRUE, verbose = FALSE, virtual = FALSE) 
 {
-
+  #
+  # Use list1 as listname if the argument is missing:
+  #
+  if(missing(query)){
+    query <- listname
+    listname <- "list1"
+  }
   #
   # Check arguments:
   #
