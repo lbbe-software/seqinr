@@ -305,7 +305,8 @@ sp2risa <- function(sp, amo1, amo2, verbose = TRUE){
   # Loop over all sequences:
   #
   for(i in seq_len(res3$nelem)){
-    result[[i]] <- mn2risa(seqnames[i], amo1, amo2, verbose = verbose)
+    try.res <- try(result[[i]] <- mn2risa(seqnames[i], amo1, amo2, verbose = verbose))
+    if(inherits(try.res, "try-error")) result[[i]] <- -Inf
   }
   return(result)
 }
@@ -372,7 +373,8 @@ for(sp in splist){
   	  i <- i + 1
   	  next
   	}
-  resultat[[i]] <- sp2risa(sp=sp,amo1, amo2, verbose = TRUE)
+  try.res <- try(resultat[[i]] <- sp2risa(sp=sp,amo1, amo2, verbose = TRUE))
+  if(inherits(try.res, "try-error")) resultat[[i]] <- -Inf
   save(resultat, file = "resultat.RData")
   print(paste("=>", resultat[[i]]))
   i <- i + 1
@@ -400,6 +402,21 @@ Show how many fragments we have by species :
 table(unlist(lapply(resultat,length)))
 @ 
 
+Show how many IGS of different size we have per species.
+
+<<ndIGSpsp,fig=T>>=
+igsdbysp <- unlist(lapply(resultat, function(x)length(unique(unlist(x)))))
+plot(table(igsdbysp),
+xlab = "Number of IGS of different size",
+ylab = "Number of species")
+@ 
+
+Which are the species with the most important number of IGS?
+
+<<igsdbysp,fig=F>>=
+tail(igsdbysp[order(igsdbysp)], n = 30)
+@ 
+
 How many IGS do we have there:
 
 <<brut,fig=F>>=
@@ -415,9 +432,9 @@ x <- as.numeric(unlist(dimnames(tab)))
 y <- tab
 plot(x,y, type = "h", ylim = c(0, max(y)),
 main = "Global distribution of IGS length",
-las = 1, ylab = "Count", xlab = "Size in bp")
+las = 1, ylab = "Count", xlab = "Size in bp", xlim = c(0,1500))
 
-dst <- density(brut2, adj = 0.1)
+dst <- density(brut2, adj = 0.2)
 lines(dst$x, dst$y*max(y)/max(dst$y), col = "red", xpd=NA)
 @ 
 
