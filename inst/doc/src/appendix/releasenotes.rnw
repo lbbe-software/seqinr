@@ -20,6 +20,8 @@ most recent on top.
 
 \begin{itemize}
 
+\item New draft chapter about making RISA \textit{in silico} added.
+
 \item Objects from class \texttt{qaw} created after a call to the
   \texttt{query()} function have gained a new generic \texttt{print}
   method to focus on the most important information: number
