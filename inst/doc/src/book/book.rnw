@@ -1,3 +1,4 @@
+% Try with R --vanilla if doesn't work
 \documentclass[a4paper]{book}
 \input{../config/commontex}
 %
@@ -28,9 +29,10 @@
 % the last version number automatically:
 %
 <<loadseqinrdev,echo=F,results=hide>>=
-# if seqinr was checked with "R CMD check seqinr", then this should load
+# Assuming seqinr sources are from the SVN repository, then
+# if seqinr was checked with "R CMD check pkg", then this should load
 # the last development version:
-library(seqinr, lib = normalizePath("../../../../../seqinr.Rcheck"))
+library(seqinr, lib = normalizePath("../../../../../pkg.Rcheck"))
 @
 
 \title{\Seqinr{} \Sexpr{packageDescription("seqinr")$Version}: a contributed package to the \Rlogo{}~project 
