@@ -1,4 +1,9 @@
+%
 % Try with R --vanilla if doesn't work
+% Then under R:  Sweave("book.rnw",sty=T);system("pdflatex book.tex");system("bibtex book")
+% Note that this supposes that all *.rnw were previously compiled to have figures
+% and tables available in the local repository.
+%
 \documentclass[a4paper]{book}
 \input{../config/commontex}
 %
