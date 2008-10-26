@@ -173,6 +173,7 @@ includepart("../mainmatter/dealseq.tex")      #  1
 includepart("../mainmatter/acnucsocket.tex")  #  55.4
 includepart("../mainmatter/multivariate.tex") #  31.4
 includepart("../mainmatter/nonparastats.tex") #  36.7 (-> 374 eval=FALSE -> T)
+includepart("../mainmatter/risa.tex") #  draft
 @
 
 \part{Appendix}
