@@ -92,7 +92,6 @@ includepart <- function(filename, withminiTOC = FALSE, withchapter = TRUE){
   cat("\\clearpage", sep = "\n")
   cat("\\color{black}", sep = "\n")
   cat(paste("%%%%% end of", filename), sep = "\n")
-  return("%%%% return %%%%")
 }
 @
 
