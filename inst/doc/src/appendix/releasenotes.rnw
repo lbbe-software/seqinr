@@ -16,6 +16,15 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-1}
+
+\begin{itemize}
+
+\item New experimental function \texttt{read.abif()} to import files
+  in ABIF format (\texttt{*.fsa}, (\texttt{*.ab1}).
+
+\end{itemize}
+
 \subsection*{release 2.0-0}
 
 \begin{itemize}
