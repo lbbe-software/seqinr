@@ -20,6 +20,9 @@ most recent on top.
 
 \begin{itemize}
 
+\item The useless \texttt{itemize} in the argument section of
+  documentation file \texttt{stresc.Rd} is now deleted.
+
 \item In function \texttt{words.pos()} the default value for parameter
   \texttt{extended} was changed from FALSE to TRUE to avoid warnings.
 
