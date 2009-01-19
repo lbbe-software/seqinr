@@ -16,6 +16,19 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-2}
+
+\begin{itemize}
+
+\item A new folder called \texttt{abif} has been created under the
+\texttt{inst} folder. The purpose of this folder is to contain examples
+of files in ABIF format so that the results of the \texttt{read.abif()} 
+function can be checked against expected results for quality check.
+It contains for now two duplicated genetic profiles and two allelic
+ladders from the same batch experiment.
+
+\end{itemize}
+
 \subsection*{release 2.0-1}
 
 \begin{itemize}
