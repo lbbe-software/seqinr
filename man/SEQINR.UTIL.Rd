@@ -8,7 +8,7 @@
 \usage{data(SEQINR.UTIL)}
 \format{
  	\code{SEQINR.UTIL} is a list containing the 4 following objects:  
-	\enumerate{	
+	\describe{	
  	\item{CODES.NCBI}{is a data frame containing the genetics code : The standard ('Universal') genetic code with a selection of non-standard codes. } 
  	\item{CODON.AA}{is a three columns data frame. The first column is a factor containing the codon. The second column is a factor giving the aminoacids names for each codon. The last column is a factor giving the IUPAC one-letter code for aminoacids}
  	\item{AA.PROPERTY}{is a list giving the physico-chemical class of amino acid. The differents classes are the following one : Tiny, Small, Aliphatic, Aromatic, Non.polar, Polar, Charged, Basic, Acidic }

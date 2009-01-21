@@ -26,7 +26,7 @@ con(matali, method = c( "majority", "threshold", "IUPAC", "profile"),
    to \code{\link{bma}}.}
 }
 \details{
-  \enumerate{
+  \describe{
   \item{"majority"}{The character with the higher frequency is returned as the
   consensus character.}
 

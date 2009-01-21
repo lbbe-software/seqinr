@@ -17,7 +17,7 @@ readfirstrec(socket = autosocket(), type)
 \details{
 Available index files are:
 
-  \enumerate{
+  \describe{
 	\item{AUT}{AUTHOR one record for each author name (last name only, no initials)}
 	\item{BIB}{BIBLIO one record for each reference}
 	\item{ACC}{ACCESS one record for each accession number}

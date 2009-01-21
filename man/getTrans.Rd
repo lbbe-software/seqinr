@@ -35,7 +35,7 @@ getTrans(object, sens = "F", NAstring = "X", ambiguous = FALSE, ...)
 \details{
  The following genetic codes are described here. The number preceding each code 
  corresponds to \code{numcode}. 
-  \enumerate{
+  \describe{
   \item{1}{ standard }
   \item{2}{ vertebrate.mitochondrial }
   \item{3}{ yeast.mitochondrial }
