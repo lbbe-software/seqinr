@@ -35,9 +35,11 @@ superposition of three normal distributions.
 }
 \value{
   An invisible dataframe with three components:
+  \enumerate{
   \item{genus }{genus name}
   \item{species }{species names}
   \item{gs }{genome size in Kb}
+  }
 }
 \references{
 Please cite the following references when using data from GOLD:
