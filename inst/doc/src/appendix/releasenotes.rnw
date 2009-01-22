@@ -20,6 +20,8 @@ most recent on top.
 
 \begin{itemize}
 
+\item New dataset \texttt{gs500liz}.
+
 \item A new folder called \texttt{abif} has been created under the
 \texttt{inst} folder. The purpose of this folder is to contain examples
 of files in ABIF format so that the results of the \texttt{read.abif()} 
