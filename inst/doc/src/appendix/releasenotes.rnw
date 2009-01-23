@@ -20,7 +20,8 @@ most recent on top.
 
 \begin{itemize}
 
-\item New dataset \texttt{gs500liz}.
+\item New datasets \texttt{gs500liz} for size standards and \texttt{identifiler}
+for allelic ladder.
 
 \item A new folder called \texttt{abif} has been created under the
 \texttt{inst} folder. The purpose of this folder is to contain examples
