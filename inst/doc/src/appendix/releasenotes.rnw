@@ -20,8 +20,10 @@ most recent on top.
 
 \begin{itemize}
 
-\item New datasets \texttt{gs500liz} for size standards and \texttt{identifiler}
-for allelic ladder.
+\item New datasets \texttt{gs500liz} for size standards, \texttt{identifiler}
+for allelic ladder names, \texttt{ECH} for allelic ladder raw data and
+\texttt{JLO} for forensic genetic profile raw data. The last one is
+now used as a quality check for the \texttt{read.abif()} function.
 
 \item A new folder called \texttt{abif} has been created under the
 \texttt{inst} folder. The purpose of this folder is to contain examples
