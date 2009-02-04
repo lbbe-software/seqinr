@@ -20,6 +20,11 @@ most recent on top.
 
 \begin{itemize}
 
+\item New ABIF format related functions: \texttt{plotabif()} to plot
+electrophoregrams with optonial internal size standard and optional
+allelic ladder, \texttt{peakabif()} to locate peaks in electrophoregrams,
+\texttt{plotladder()} to display an observed allelic ladder.
+
 \item New datasets \texttt{gs500liz} for size standards, \texttt{identifiler}
 for allelic ladder names, \texttt{ECH} for allelic ladder raw data and
 \texttt{JLO} for forensic genetic profile raw data. The last one is
