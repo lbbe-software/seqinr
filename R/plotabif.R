@@ -20,8 +20,9 @@ plotabif <- function(abifdata,
   allele.names = "identifiler",
   ladder.lab = TRUE,
   ...){
-  	old.par <- par(no.readonly = TRUE)
-  	on.exit(par(old.par))
+
+  old.par <- par(no.readonly = TRUE)
+  on.exit(par(old.par))
   if(is.null(calibr)){
     plot(x, y, type = type, las = las, 
       xlab = xlab, ylab = ylab, xlim = xlim, ylim = ylim, main = main, ...)
@@ -48,4 +49,6 @@ plotabif <- function(abifdata,
       }
     }
   }
+  locpar <- par(no.readonly = TRUE)
+  invisible(locpar)
 }
