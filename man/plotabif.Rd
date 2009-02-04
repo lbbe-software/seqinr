@@ -54,6 +54,9 @@ plotabif(abifdata,
   \item{ladder.lab}{logical: should allele names be added on plot}
   \item{...}{arguments forwarded to \code{\link{plot}}}
 }
+\value{
+ Returns invisibly its local graphical parameter settings.
+}
 \references{
   \code{citation("seqinr")}
 }
