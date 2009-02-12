@@ -16,6 +16,20 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-3}
+
+\begin{itemize}
+
+\item New utility function \texttt{al2bp()} to convert
+a forensic microsatellite allele name into its length in base pairs.
+Conventions used to name forensic microsatellite alleles (STR) are described
+in Bar \emph{et al.} (1994) \cite{BarW1994}. 
+The name \texttt{9.3} means for instance that there are
+9 repetitions of the complete base oligomer and an incomplete 
+repeat with 3 bp.
+
+\end{itemize}
+
 \subsection*{release 2.0-2}
 
 \begin{itemize}
