@@ -7,7 +7,7 @@ in Bar \emph{et al.} (1994). The name "9.3" means for instance that there are
 9 repetitions of the complete base oligomer and an incomplete repeat with 3 bp.
 }
 \usage{
-al2bp(allele.name, repeat.bp = 4, offLadderChars = "><")
+al2bp(allele.name, repeat.bp = 4, offLadderChars = "><", split = "\\.")
 }
 \arguments{
   \item{allele.name}{The name of the allele, coerced to a string type.}
@@ -16,7 +16,11 @@ are tetranucleotides so that it defaults to 4. Do not forget to change this to 5
 for loci based on pentanucleotides such as Penta D or Penta E.}	
   \item{offLadderChars}{\code{\link{NA}} is returned when at least one of 
   these characters are found in the allele name. Off ladder alleles are typically
-  reported as "<8" or ">19" }	
+  reported as "<8" or ">19" }
+  \item{split}{The convention is to use a dot, as in "9.3", between the number of repeats
+and the number of bases in the incomplete repeat. On some locales where the
+decimal separator is a comma this could be a source of problem, try to use
+"," instead for this argument which is forwarded to \code{\link{strsplit}}.}
 }
 \value{
 A single numeric value corresponding to the size in bp of the allele, or NA
