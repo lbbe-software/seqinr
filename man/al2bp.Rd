@@ -7,7 +7,7 @@ in Bar \emph{et al.} (1994). The name "9.3" means for instance that there are
 9 repetitions of the complete base oligomer and an incomplete repeat with 3 bp.
 }
 \usage{
-al2bp(allele.name, repeat.bp = 4, offLadderChars = "><", split = "\\.")
+al2bp(allele.name, repeat.bp = 4, offLadderChars = "><", split = "\\\\.")
 }
 \arguments{
   \item{allele.name}{The name of the allele, coerced to a string type.}
