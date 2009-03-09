@@ -20,6 +20,9 @@ most recent on top.
 
 \begin{itemize}
 
+\item Function \texttt{peakabif()} now returns the heights and
+surfaces of peaks in addition to their location.
+
 \item New utility function \texttt{al2bp()} to convert
 a forensic microsatellite allele name into its length in base pairs.
 Conventions used to name forensic microsatellite alleles (STR) are described
