@@ -20,6 +20,10 @@ most recent on top.
 
 \begin{itemize}
 
+\item New utility functions \texttt{readPanels()} and \texttt{readBins()} 
+to import data from GeneMapper configuration files. Four example files
+are now in the \texttt{abif} folder.
+
 \item Function \texttt{peakabif()} now returns the heights and
 surfaces of peaks in addition to their location.
 
