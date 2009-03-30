@@ -20,6 +20,11 @@ most recent on top.
 
 \begin{itemize}
 
+\item As pointed out by e-mail on 30-MAR-2009 by Yann Lesecque there 
+was a bug in the \texttt{getTrans()} function: when applied to a 
+list of sequences with all the same length the returned result 
+was a matrix instead of a list. This now fixed.
+
 \item New utility functions \texttt{readPanels()} and \texttt{readBins()} 
 to import data from GeneMapper configuration files. Four example files
 are now in the \texttt{abif} folder.
