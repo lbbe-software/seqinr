@@ -17,8 +17,8 @@ readBins <- function(file,
   	  locstops <- c(iMark[-1] - 1, length(locsrc))
   	  for(j in seq_len(length(iMark))){
   	  	  mycon <- textConnection(locsrc[locstarts[j]:locstops[j]])
-  	  	  locres[[j]] <- read.table(mycon, sep = "\t")
-  	  	  colnames(locres[[j]]) <- colnames
+  	  	  locres[[j]] <- read.table(mycon, sep = "\t", fill = TRUE)
+  	  	  colnames(locres[[j]])[1:length(colnames)] <- colnames
   	  	  close(mycon)
   	  	  names(locres)[j] <- unlist(strsplit(locsrc[iMark[j]], split = "\t"))[2]
   	  	}
