@@ -20,6 +20,11 @@ most recent on top.
 
 \begin{itemize}
 
+\item Function \texttt{readBins()} is now more tolerant when there
+is an extra column with possibly empty fields in data by forcing
+the \texttt{fill} argument of \texttt{read.table()} function to
+\texttt{TRUE}.
+
 \item As pointed out by e-mail on 30-MAR-2009 by Yann Lesecque there 
 was a bug in the \texttt{getTrans()} function: when applied to a 
 list of sequences with all the same length the returned result 
