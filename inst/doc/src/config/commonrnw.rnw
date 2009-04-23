@@ -39,7 +39,7 @@ if (as.numeric(R.version[["major"]])+as.numeric(R.version[["minor"]])/100 >=2.09
 r <- getOption("repos")
 r["CRAN"] <- "http://cran.univ-lyon1.fr"
 options(repos = r)
-# if seqinr was checked with "R CMD check seqinr", then this should load
+# if seqinr was checked with "R CMD check pkg", then this should load
 # the last development version:
 library(seqinr, lib = normalizePath("../../../../../pkg.Rcheck"))
 library(xtable)
@@ -47,6 +47,8 @@ library(ade4)
 library(ape)
 library(MASS)
 library(tseries)
+library(XML)
+library(grImport)
 @
 %
 %  Sweave Options
