@@ -28,9 +28,14 @@
 %
 <<options, echo=FALSE, fig=FALSE, results=hide, eval=TRUE>>=
 options(prompt=" ", continue=" ", width = 77)
-.CurFileName <- get("file", env = parent.frame(3))
-.PrefixName <-strsplit(.CurFileName, "\\.")[[1]][1]
 .RversionName <-strsplit(R.version.string, ",")[[1]]
+if (as.numeric(R.version[["major"]])+as.numeric(R.version[["minor"]])/100 >=2.09 ) {
+    framenumber<-4
+  } else {
+    framenumber<-3
+}
+.CurFileName <- get("file", env = parent.frame(framenumber))
+.PrefixName <-strsplit(.CurFileName, "\\.")[[1]][1]
 r <- getOption("repos")
 r["CRAN"] <- "http://cran.univ-lyon1.fr"
 options(repos = r)
