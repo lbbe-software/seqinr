@@ -20,6 +20,13 @@ most recent on top.
 
 \begin{itemize}
 
+\item As pointed out on the seqinr diffusion list on 23-APR-2009
+by Darren Obbard there was an obscure error message when function
+\texttt{kaks()} was called with an alignment such that the number
+of nucleotides was not a multiple of 3 after gap removal. The error 
+message is now more explicit. Documentation of the function has 
+been clarified accordingly.
+
 \item Function \texttt{readBins()} is now more tolerant when there
 is an extra column with possibly empty fields in data by forcing
 the \texttt{fill} argument of \texttt{read.table()} function to
