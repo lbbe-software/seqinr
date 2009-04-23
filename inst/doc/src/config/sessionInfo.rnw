@@ -1,7 +1,7 @@
 
 \section*{Session Informations}
 
-\begin{small}
+\begin{scriptsize}
 
 This part was compiled under the following \Rlogo{}~environment:
 
@@ -19,4 +19,4 @@ There were two compilation steps:
   \item \LaTeX{} compilation time was: \today
 \end{itemize}
 
-\end{small}
+\end{scriptsize}
