@@ -1,7 +1,7 @@
 \name{kaks}
 \alias{kaks}
 \title{Ka and Ks, also known as dn and ds, computation}
-\description{ Ks and Ka  are, respectively, the number of substitutions per synonymous site and per non-synonymous site between two protein-coding genes. They are also denoted as ds and dn in the literature. The ratio of nonsynonymous (Ka) to synonymous (Ks) nucleotide substitution rates is an indicator of selective pressures on genes. A ratio significantly greater than 1 indicates positive selective pressure. A ratio around 1 indicates either neutral evolution at the protein level or an averaging of sites under positive and negative selective pressures. A ratio less than 1 indicates pressures to conserve protein sequence (i.e. purifying selection). This function estimates the Ka and Ks values for a set of aligned sequences using the method published by Li (1993) and gives the associated variance matrix. 
+\description{ Ks and Ka  are, respectively, the number of substitutions per synonymous site and per non-synonymous site between two protein-coding genes. They are also denoted as ds and dn in the literature. The ratio of nonsynonymous (Ka) to synonymous (Ks) nucleotide substitution rates is an indicator of selective pressures on genes. A ratio significantly greater than 1 indicates positive selective pressure. A ratio around 1 indicates either neutral evolution at the protein level or an averaging of sites under positive and negative selective pressures. A ratio less than 1 indicates pressures to conserve protein sequence (\emph{i.e.} purifying selection). This function estimates the Ka and Ks values for a set of aligned sequences using the method published by Li (1993) and gives the associated variance matrix. 
 }
 \usage{
 kaks(x, debug = FALSE, forceUpperCase = TRUE)
@@ -45,11 +45,9 @@ at your R prompt.
 \note{ 
 Computing Ka and Ks makes sense for coding sequences that have been aligned at the amino-acid level before retro-translating the alignement at the nucleic acid level to ensure that sequences are compared on a codon-by-codon basis. Function \code{\link{reverse.align}} may help for this.
 
-There is an internal check at the C level to ensure that sequences have a multiple of 3 nucleotides after gap removal. A trouble at this level means most likely that the alignment was not done at the amino-acid level.
+As from seqinR 2.0-3, when there is at least one non ACGT base in a codon, this codon is considered as a gap-codon (\code{---}). This makes the computation more robust with respect to alignments with out-of-frame gaps, see example section.
 
-When there is at least one ambiguous base in a codon, this codon is considered as a gap-codon (\code{---}).
-
-Gap-codons (\code{---}) are not used for computations.
+Gap-codons (\code{---}) are not used for computations. 
 
 When the alignment does not contain enough information (\emph{i.e.} close to saturation), the Ka and Ks values are forced to 10.
 
@@ -74,5 +72,19 @@ Negative values indicate that Ka and Ks can not be computed.
  } else {
    print("Results are consistent with AnoukResult standard")
  }
+#
+# As from seqinR 2.0-3 the following alignment with out-of-frame gaps
+# should return a zero Ka value.
+#
+# >Reference
+# ATGTGGTCGAGATATCGAAAGCTAGGGATATCGATTATATATAGCAAGATCGATAGAGGA
+# TCGATGATCGATCGGGATCGACAGCTG
+# >With out-of-frame gaps
+# AT-TGGTCCAGGTATCGTAAGCTAGGGATATCGATTATATATAGCAAGATCGATAGGGGA
+# TCGATGATCGATCGGGA--GACAGCTG
+#
+# This test example provided by Darren Obbard is now used as a routine check: 
+#
+ Darren <- read.alignment(file = system.file("sequences/DarrenObbard.fasta", package = "seqinr"), format = "fasta")
+ stopifnot( all.equal(kaks(Darren)$ka[1], 0) )
 }
-\keyword{ manip }
