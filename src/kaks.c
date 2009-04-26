@@ -152,33 +152,34 @@ SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks)
 
 /******************************************************************************/
 /*                                                                            */
-/* Replace codons with ambiguous bases with ---                               */
+/* Replace codons with non ACGT bases with ---                                */
 /*                                                                            */
 /******************************************************************************/
 
-	for (i=0;i<totseqs;i++){
-		for(j=0;j<lgseq;j++){
-			if ((*(seqIn[i]+j)!='A') && (*(seqIn[i]+j)!='G') && (*(seqIn[i]+j)!='C') && (*(seqIn[i]+j)!='T') && (*(seqIn[i]+j)!='-') ) {
-				if (j%3==0) {
-					*(seqIn[i]+j)='-';
-					*(seqIn[i]+j+1)='-';
-					*(seqIn[i]+j+2)='-';
-				}
-
-				if (j%3==1) {
-					*(seqIn[i]+j)='-';
-					*(seqIn[i]+j+1)='-';
-					*(seqIn[i]+j-1)='-';
-				}
-
-				if (j%3==2) {
-					*(seqIn[i]+j)='-';
-					*(seqIn[i]+j-1)='-';
-					*(seqIn[i]+j-2)='-';
-				}
-			}
-		}
+  for (i = 0 ; i < totseqs ; i++){
+    for(j = 0 ; j < lgseq ; j++){
+      if ((*(seqIn[i] + j) != 'A') && (*(seqIn[i] + j) != 'G') && (*(seqIn[i] + j) != 'C') && (*(seqIn[i] + j) != 'T') ) {
+        /* Base in first codon position */
+        if (j % 3 == 0) {
+	  *(seqIn[i] + j) = '-';
+	  *(seqIn[i] + j + 1) = '-';
+	  *(seqIn[i] + j + 2) = '-';
 	}
+        /* Base in second codon position */
+	if (j % 3 == 1) {
+	  *(seqIn[i] + j) = '-';
+	  *(seqIn[i] + j + 1) = '-';
+	  *(seqIn[i] + j - 1) = '-';
+	}
+        /* Base in third codon position */
+	if (j % 3 == 2) {
+	  *(seqIn[i] + j) = '-';
+	  *(seqIn[i] + j - 1) = '-';
+	  *(seqIn[i] + j - 2) = '-';
+	}
+      }
+    }
+  }
 
 /******************************************************************************/
 /*                                                                            */
@@ -314,11 +315,11 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
 
   sat = sat1 = sat2 = 2;
   /*
-     Internal check at C level: 
+     Internal check at C level: this should be no more be necessary, I'll keep it just in case. JRL - 26-APR-2009
   */
   flgseq = (double) lgseq;
   if (flgseq / trois != lgseq / 3) {
-    REprintf("Error: the number of nucleotide after gap removal is not a multiple of 3.\nDid you align the CDS at the aa level?\nSee reverse.align().\n");
+    REprintf("Fatal error: the number of nucleotide after gap removal is not a multiple of 3.\nPlease report this bug on the seqinr diffusion list.\n");
     return(0); /* Should be R's NA but an int is returned by fastlwl */
   }
   for (i = 0; i < nbseq - 1; i++) {
