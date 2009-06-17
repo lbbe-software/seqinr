@@ -16,6 +16,19 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-4}
+
+\begin{itemize}
+
+\item Configuration files to be imported by the \texttt{readPanels()}
+function may have more than one tabulation separator between
+two data items in a way that could be different from one
+line to another one. This was a source of trouble during importation.
+This is now fixed by preprocessing the input so that
+all consecutive tabulations are replaced by a single one.
+
+\end{itemize}
+
 \subsection*{release 2.0-3}
 
 \begin{itemize}
