@@ -16,6 +16,17 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-5}
+
+\begin{itemize}
+
+\item New function \texttt{move()} aliased as \texttt{mv()} to rename
+an object.
+
+\item New function \texttt{swap()} to exchange to objects.
+
+\end{itemize}
+
 \subsection*{release 2.0-4}
 
 \begin{itemize}
