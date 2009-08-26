@@ -20,8 +20,11 @@ most recent on top.
 
 \begin{itemize}
 
+\item New ABIF example file \texttt{samplefsa2ps.fsa} used in the
+\texttt{read.abif()} function to reproduce figure 1A from \cite{Krawczyk2009}.
+
 \item New function \texttt{move()} aliased as \texttt{mv()} to rename
-an object.
+an object without deep copy.
 
 \item New function \texttt{swap()} to exchange to objects.
 
