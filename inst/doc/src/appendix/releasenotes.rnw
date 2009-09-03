@@ -20,6 +20,9 @@ most recent on top.
 
 \begin{itemize}
 
+\item New function \texttt{plotPanels()} to plot amplicon size ranges of STR
+kits data.
+
 \item New utility function \texttt{col2alpha()} to add a transparency 
 chanel to a standard R color.
 
