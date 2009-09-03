@@ -20,6 +20,10 @@ most recent on top.
 
 \begin{itemize}
 
+\item Two more examples of files to be imported with the \texttt{readBins()}
+and \texttt{readPanels()} functions are now available in the \texttt{abif}
+folder: \texttt{NGM\_Bins.txt} and \texttt{NGM\_Pa.txt}, respectively.
+
 \item New function \texttt{plotPanels()} to plot amplicon size ranges of STR
 kits data.
 
