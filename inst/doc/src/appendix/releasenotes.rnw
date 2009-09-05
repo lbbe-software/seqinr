@@ -20,6 +20,8 @@ most recent on top.
 
 \begin{itemize}
 
+\item New utility function \texttt{circle()} to draw a circle.
+
 \item Two more examples of files to be imported with the \texttt{readBins()}
 and \texttt{readPanels()} functions are now available in the \texttt{abif}
 folder: \texttt{NGM\_Bins.txt} and \texttt{NGM\_Pa.txt}, respectively.
