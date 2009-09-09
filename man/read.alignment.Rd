@@ -85,7 +85,7 @@ read.alignment(file, format, forceToLower = TRUE, File = NULL)
 To read aligned sequences in NEXUS format, see the function 
 \code{read.nexus} that was available in the \code{CompPairWise} package
 (not sure it is still maintained as of 09/09/09).
-The NEXUS format is mainly used by the non-GPL commercial PAUP
+The NEXUS format was mainly used by the non-GPL commercial PAUP
 software.
 
 Related functions: \code{\link{as.matrix.alignment}}, \code{\link{read.fasta}}, 
