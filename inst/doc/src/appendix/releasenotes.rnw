@@ -16,6 +16,16 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-6}
+
+\begin{itemize}
+
+\item New utility function \texttt{fastacc()} to compute the number
+of alleles in common between a genetic profile and a database of
+genetic profiles.
+
+\end{itemize}
+
 \subsection*{release 2.0-5}
 
 \begin{itemize}
