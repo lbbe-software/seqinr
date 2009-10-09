@@ -47,13 +47,21 @@ peakabif <- function(abifdata,
 		heights[i] <- spfun(maxis[i])
 		surfaces[i] <- integrate(spfun, starts[i], stops[i])$value
 		if (fig) {
-			plot(x/tscale + tmin, y[x], type = "p", las = 1, ylim = range(y), ...)
+			xx <- (x-1)/tscale + tmin
+			plot(xx, y[x], type = "p", las = 1, ylim = range(y), ...)
 			abline(h = thres, col = "red")
-			lines(x/tscale + tmin, spfun(x), col = "blue")
-			abline(v = maxis[i]/tscale + tmin, col = "grey")
+			lines(xx, spfun(x), col = "blue")
+			abline(v = (maxis[i]-1)/tscale + tmin, col = "grey")
 		}
 	}
+	#
+	# Compute baseline:
+	#
+	y <- abifdata$Data[[DATA]][irange]/yscale
+	baseline <- as.numeric(names(which.max(table(y))))
+	
 	if(fig) mtext(paste(deparse(substitute(abifdata)), ",",
 	  DATA, ", tmin =", tmin, ", tmax =", tmax, ", thres =", thres, ", npeak =", npeak, ", yscale = ", yscale), side = 3, outer = TRUE)
-	invisible(list(maxis = maxis + tmin*tscale, heights = yscale*heights, surfaces = yscale*surfaces))
+	
+	invisible(list(maxis = (maxis-1) + tmin*tscale, heights = yscale*heights, surfaces = yscale*surfaces, baseline = baseline))
 }
