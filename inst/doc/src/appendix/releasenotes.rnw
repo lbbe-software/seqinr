@@ -20,6 +20,18 @@ most recent on top.
 
 \begin{itemize}
 
+\item Function \texttt{plotabif()} has a new default value for its
+\texttt{ylim} arugument: \texttt{c(min(y), max(y))} now instead
+of \texttt{c(0, max(y))} previously to help ploting data with
+a highly negative baseline.
+
+\item Function \texttt{peakabif()} now returns in addition an estimate
+of the baseline value.
+
+\item There was time of one datapoint unit for the peak locations
+returned by the \texttt{peakabif()} function, this is now fixed
+and the documentation is more explicit for the units used.
+
 \item New utility function \texttt{fastacc()} to compute the number
 of alleles in common between a genetic profile and a database of
 genetic profiles.
