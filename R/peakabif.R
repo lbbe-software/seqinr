@@ -11,7 +11,8 @@ peakabif <- function(abifdata,
   yscale = 1000,
   irange = (tmin*tscale):(tmax*tscale),
   y = abifdata$Data[[DATA]][irange]/yscale,
-  method = "monoH.FC", ...) {
+  method = "monoH.FC",
+  maxrfu = 1000, ...) {
   	
 	y[y < thres] <- 0
 	heights <- surfaces <- maxis <- starts <- stops <- numeric(npeak)
@@ -57,8 +58,8 @@ peakabif <- function(abifdata,
 	#
 	# Compute baseline:
 	#
-	y <- abifdata$Data[[DATA]][irange]/yscale
-	baseline <- as.numeric(names(which.max(table(y))))
+        baseline <- baselineabif(abifdata$Data[[DATA]][irange], maxrfu = maxrfu)
+        baseline <- baseline/yscale
 	
 	if(fig) mtext(paste(deparse(substitute(abifdata)), ",",
 	  DATA, ", tmin =", tmin, ", tmax =", tmax, ", thres =", thres, ", npeak =", npeak, ", yscale = ", yscale), side = 3, outer = TRUE)
