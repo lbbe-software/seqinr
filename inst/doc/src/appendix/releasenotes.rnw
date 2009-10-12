@@ -20,6 +20,10 @@ most recent on top.
 
 \begin{itemize}
 
+\item The old argument \texttt{File} in function \texttt{read.fasta()}
+that was deprecated since release 1.1-3 is no more valid.
+Just use \texttt{file} instead.
+
 \item New function \texttt{stutterabif()} to estimate stutter ratio.
 
 \item Function \texttt{plotabif()} has a new default value for its
