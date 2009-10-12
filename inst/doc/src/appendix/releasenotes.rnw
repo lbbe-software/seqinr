@@ -28,6 +28,9 @@ a highly negative baseline.
 \item Function \texttt{peakabif()} now returns in addition an estimate
 of the baseline value.
 
+\item New utility \texttt{baselineabif()} to estimate the baseline
+value.
+
 \item There was time of one datapoint unit for the peak locations
 returned by the \texttt{peakabif()} function, this is now fixed
 and the documentation is more explicit for the units used.
