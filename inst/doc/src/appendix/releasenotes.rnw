@@ -20,6 +20,8 @@ most recent on top.
 
 \begin{itemize}
 
+\item New function \texttt{stutterabif()} to estimate stutter ratio.
+
 \item Function \texttt{plotabif()} has a new default value for its
 \texttt{ylim} arugument: \texttt{c(min(y), max(y))} now instead
 of \texttt{c(0, max(y))} previously to help ploting data with
