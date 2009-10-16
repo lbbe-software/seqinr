@@ -27,7 +27,7 @@ Just use \texttt{file} instead.
 \item New function \texttt{stutterabif()} to estimate stutter ratio.
 
 \item Function \texttt{plotabif()} has a new default value for its
-\texttt{ylim} arugument: \texttt{c(min(y), max(y))} now instead
+\texttt{ylim} argument: \texttt{c(min(y), max(y))} now instead
 of \texttt{c(0, max(y))} previously to help ploting data with
 a highly negative baseline.
 
@@ -37,7 +37,7 @@ of the baseline value.
 \item New utility \texttt{baselineabif()} to estimate the baseline
 value.
 
-\item There was time of one datapoint unit for the peak locations
+\item There was time shift of one datapoint unit for the peak locations
 returned by the \texttt{peakabif()} function, this is now fixed
 and the documentation is more explicit for the units used.
 
