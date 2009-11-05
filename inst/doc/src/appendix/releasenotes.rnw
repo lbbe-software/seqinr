@@ -16,6 +16,16 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-7}
+
+\begin{itemize}
+
+\item Since basic regular expressions are defunct since R 2.11, the
+\texttt{extended} argument in functions \texttt{words.pos()} and
+\texttt{trimSpace()} was no more necessary. It is now deleted. 
+
+\end{itemize}
+
 \subsection*{release 2.0-6}
 
 \begin{itemize}
