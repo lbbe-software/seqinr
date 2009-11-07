@@ -20,6 +20,11 @@ most recent on top.
 
 \begin{itemize}
 
+\item As pointed out 05 Nov 2009 by Darren Obbard on the seqinr diffusion list
+the argument \texttt{forceToLower = FALSE} in function \texttt{comp()}
+was not honored. This is now fixed and a new sanity check was added in
+the example section of the documentation of the function.
+
 \item Documentation for the function \texttt{uco()} for codon usage
 table computation was updated with new bibliographical 
 references \cite{lobrychessel, SuzukiH2008}.
