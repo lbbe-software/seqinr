@@ -20,6 +20,13 @@ most recent on top.
 
 \begin{itemize}
 
+\item A new utility function \texttt{where.is.this.acc()} was introduced
+to loop over all availabale ACNUC databases to look for
+a given sequence accession number. This is useful when you have
+a sequence accession number and you don't know in which database
+it is present. The documentation of the function \texttt{choosebank()}
+was also changed to make a link to this function.
+
 \item As pointed out 05 Nov 2009 by Darren Obbard on the seqinr diffusion list
 the argument \texttt{forceToLower = FALSE} in function \texttt{comp()}
 was not honored. This is now fixed and a new sanity check was added in
