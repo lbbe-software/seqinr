@@ -1,7 +1,7 @@
-where.is.this.acc <- function(acc, ...){
-	#
-	# Argument check:
-	#
+where.is.this.acc <- function(acc, stopAtFirst = TRUE, ...){
+  #
+  # Argument check:
+  #
   if(!is.character(acc)) stop("string expected for argument acc")
   #
   result <- character(0)
@@ -33,6 +33,9 @@ where.is.this.acc <- function(acc, ...){
       result <- c(result, banks[i])
     }
     closebank()
+    if(length(result) != 0 && stopAtFirst){
+      return(invisible(result))
+    }
   }
 }
 #
