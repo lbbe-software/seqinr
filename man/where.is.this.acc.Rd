@@ -8,10 +8,12 @@ a sequence accession number and you don't know in which database
 it is present. 
 }
 \usage{
-where.is.this.acc(acc, ...)
+where.is.this.acc(acc,  stopAtFirst = TRUE, ...)
 }
 \arguments{
   \item{acc}{An accession number as a string of characters such as \code{"NC_001416"}.}
+  \item{stopAtFirst}{Logical. If TRUE, the default, the function stops at the first 
+     database where the accession number is found.}
   \item{\dots}{Arguments passed to the function \code{\link{choosebank}}.}
 }
 \value{
