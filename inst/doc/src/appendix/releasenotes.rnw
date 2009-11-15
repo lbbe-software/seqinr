@@ -39,7 +39,7 @@ the example section of the documentation of the function.
 table computation was updated with new bibliographical 
 references \cite{lobrychessel, SuzukiH2008}.
 
-\item Since basic regular expressions are defunct since R 2.11, the
+\item As basic regular expressions are defunct since R 2.11, the
 \texttt{extended} argument in functions \texttt{words.pos()} and
 \texttt{trimSpace()} was no more necessary. It is now deleted. 
 

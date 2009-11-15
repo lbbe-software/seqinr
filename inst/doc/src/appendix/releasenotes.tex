@@ -56,11 +56,26 @@ most recent on top.
 
 \begin{itemize}
 
+\item A new utility function \texttt{where.is.this.acc()} was introduced
+to loop over all availabale ACNUC databases to look for
+a given sequence accession number. This is useful when you have
+a sequence accession number and you don't know in which database
+it is present. The documentation of the function \texttt{choosebank()}
+was also changed to make a link to this function. As suggested by 
+Avril Coghlan, the function has an argument \texttt{stopAtFirst} defaulting
+to \texttt{TRUE} that stops the search at the first database found
+with the given accession number.
+
+\item As pointed out 05 Nov 2009 by Darren Obbard on the seqinr diffusion list
+the argument \texttt{forceToLower = FALSE} in function \texttt{comp()}
+was not honored. This is now fixed and a new sanity check was added in
+the example section of the documentation of the function.
+
 \item Documentation for the function \texttt{uco()} for codon usage
 table computation was updated with new bibliographical 
 references \cite{lobrychessel, SuzukiH2008}.
 
-\item Since basic regular expressions are defunct since R 2.11, the
+\item As basic regular expressions are defunct since R 2.11, the
 \texttt{extended} argument in functions \texttt{words.pos()} and
 \texttt{trimSpace()} was no more necessary. It is now deleted. 
 
@@ -976,7 +991,7 @@ This part was compiled under the following \Rlogo{}~environment:
 There were two compilation steps:
 
 \begin{itemize}
-  \item \Rlogo{} compilation time was: Thu Nov  5 14:50:48 2009
+  \item \Rlogo{} compilation time was: Sun Nov 15 11:55:18 2009
   \item \LaTeX{} compilation time was: \today
 \end{itemize}
 
