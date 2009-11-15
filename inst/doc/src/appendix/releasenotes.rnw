@@ -25,7 +25,10 @@ to loop over all availabale ACNUC databases to look for
 a given sequence accession number. This is useful when you have
 a sequence accession number and you don't know in which database
 it is present. The documentation of the function \texttt{choosebank()}
-was also changed to make a link to this function.
+was also changed to make a link to this function. As suggested by 
+Avril Coghlan, the function has an argument \texttt{stopAtFirst} defaulting
+to \texttt{TRUE} that stops the search at the first database found
+with the given accession number.
 
 \item As pointed out 05 Nov 2009 by Darren Obbard on the seqinr diffusion list
 the argument \texttt{forceToLower = FALSE} in function \texttt{comp()}
