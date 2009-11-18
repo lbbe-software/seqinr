@@ -16,6 +16,18 @@ most recent on top.
 
 \section*{2.0 series}
 
+\subsection*{release 2.0-8}
+
+\begin{itemize}
+
+\item The title in the documentation for the function \texttt{write.fasta()}
+was changed to make clear that more than one sequence can be written at once.
+The function now does not return anything instead of \texttt{NULL}. The argument
+\texttt{file.out} was move to the left so that it is easier now use
+it by position during function call.
+
+\end{itemize}
+
 \subsection*{release 2.0-7}
 
 \begin{itemize}
