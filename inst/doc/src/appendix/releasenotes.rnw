@@ -20,6 +20,11 @@ most recent on top.
 
 \begin{itemize}
 
+\item The message printed when function \texttt{where.is.this.acc()} fails
+to find a database with a given accession number for a sequence is now
+completed to warn the user that (s)he may have supplied a sequence name
+instead of a genuine accession number.
+
 \item The title in the documentation for the function \texttt{write.fasta()}
 was changed to make clear that more than one sequence can be written at once.
 The function now does not return anything instead of \texttt{NULL}. The argument
