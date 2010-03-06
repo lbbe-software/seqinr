@@ -723,7 +723,7 @@ SEXP read_fasta_align(SEXP ficname)
     }
     seq[totseqs][lseq] = '\0';
     SET_ELEMENT(listseq, totseqs, mkChar(seq[totseqs]));
-   }
+  }
 
   SET_ELEMENT(list, 0, nombreseq);
   SET_ELEMENT(list, 1, listname);
