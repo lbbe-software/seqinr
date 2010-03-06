@@ -21,6 +21,10 @@ most recent on top.
 
 \begin{itemize}
 
+\item The \texttt{File} argument that was deprecated since seqinR
+release 1.1-3 in function \texttt{read.alignment()} is no more valid.
+Just use \texttt{file} instead.
+
 \item As pointed by Darren Obbard on the seqinr diffusion list on
 05-MAR-2010 there was a memory leak problem when calling the
 \texttt{read.alignment()} function with the fasta format. This
