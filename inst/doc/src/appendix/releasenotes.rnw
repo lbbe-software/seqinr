@@ -14,7 +14,20 @@
 The release notes are listed in reverse chronological order:
 most recent on top.
 
+
 \section*{2.0 series}
+
+\subsection*{release 2.0-9}
+
+\begin{itemize}
+
+\item As pointed by Darren Obbard on the seqinr diffusion list on
+05-MAR-2010 there was a memory leak problem when calling the
+\texttt{read.alignment()} function with the fasta format. This
+is now fixed for the fasta format, but the remaining formats have
+not been checked for this problem.
+
+\end{itemize}
 
 \subsection*{release 2.0-8}
 
