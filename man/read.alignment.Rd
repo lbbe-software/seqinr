@@ -6,7 +6,7 @@
  These formats are used to store nucleotide or protein multiple alignments. 
 }
 \usage{
-read.alignment(file, format, forceToLower = TRUE, File = NULL)
+read.alignment(file, format, forceToLower = TRUE)
 }
 \arguments{
   \item{file}{the name of the file which the aligned sequences are to be read from. 
@@ -17,8 +17,6 @@ read.alignment(file, format, forceToLower = TRUE, File = NULL)
   \item{forceToLower}{a logical defaulting to TRUE stating whether the returned
     characters in the sequence should be in lower case (introduced in seqinR
     release 1.1-3).}
-  \item{File}{synonymous of file maintained for backward compatibility.
-    As from seqinR 1.1-3 this argument is deprecated and a warning is issued.}
 }
 \details{
   \describe{
