@@ -1,4 +1,4 @@
-count <- function(seq, word, start = 0, by = 1, freq = FALSE, alphabet = s2c("acgt"), frame = start){
+count <- function(seq, wordsize, start = 0, by = 1, freq = FALSE, alphabet = s2c("acgt"), frame = start){
 #
 # For backward compatibility:
 #
