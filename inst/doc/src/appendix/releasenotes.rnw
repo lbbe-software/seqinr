@@ -21,6 +21,10 @@ most recent on top.
 
 \begin{itemize}
 
+\item As pointed out by Avril Coghlan on the seqinR diffusion list on
+17-MAR-2010 there was a bug in the \texttt{getAnnot()} function.
+This is now fixed.
+
 \item As suggested by Avril Coghlan on the seqinR diffusion list on
 02-MAR-2010 the function \texttt{rho()} has gained a \texttt{wordsize}
 argument.
