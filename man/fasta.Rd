@@ -1,5 +1,5 @@
 \name{fasta}
-     \docType{fasta}
+     \docType{data}
      \alias{fasta}
      \title{Example of results obtained after a call to read.alignment}
      \description{This data set gives an example of a amino acids alignment obtained after a call to the function read.alignment on an alignment file in "fasta" format.}
