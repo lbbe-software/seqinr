@@ -519,17 +519,7 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
 	B0, B2, B4  correspondent à   b[0], b[1], b[2]
    */
    
-   /*   l024[0]=l[0];
-      l024[1]=l[1];
-      l024[2]=l[2];
-      
-      a024[0]=a[0];
-      a024[1]=a[1];
-      a024[2]=a[2];
-      
-      b024[0]=b[0];
-      b024[1]=b[1];
-      b024[2]=b[2];*/
+ 
          
       
 
