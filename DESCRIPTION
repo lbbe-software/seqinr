@@ -12,3 +12,4 @@ Description: Exploratory data analysis and data visualization
 License: GPL (>= 2)
 URL: http://seqinr.r-forge.r-project.org/, Mailing list: http://r-forge.r-project.org/mail/?group_id=220
 ZipData:no
+LazyData:yes
