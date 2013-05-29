@@ -693,7 +693,7 @@ SEXP read_fasta_align(SEXP ficname)
     totseqs++;
     comments[totseqs] = NULL;
     p = line + 1; 
-    while(*p != ' ' && *p != '\n')
+    while(*p != '\n')  
       p++;
     l = p - line - 1;
 
