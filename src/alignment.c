@@ -252,11 +252,12 @@ for(i=0;i<nb_seq;i++){
 /*************************************************************************/
 
 
-SEXP distance(SEXP sequences,SEXP nbseq, SEXP matNumber, SEXP seqtype){
+SEXP distance(SEXP sequences,SEXP nbseq, SEXP matNumber, SEXP seqtype, SEXP gapoption){
 
   SEXP d;
   int MAXNSEQS;
   char **seq;
+  int gap_option;
   int i, j, k, n,totseqs, seq_long, nbases;
   int mat_number, seq_type;
   int **ndiff;
@@ -294,6 +295,7 @@ SEXP distance(SEXP sequences,SEXP nbseq, SEXP matNumber, SEXP seqtype){
   totseqs = INTEGER_VALUE(nbseq);
   mat_number= INTEGER_VALUE(matNumber);
   seq_type = INTEGER_VALUE(seqtype);
+  gap_option =  INTEGER_VALUE(gapoption);
 
   PROTECT(d=NEW_NUMERIC(totseqs*totseqs));
 
@@ -354,6 +356,23 @@ SEXP distance(SEXP sequences,SEXP nbseq, SEXP matNumber, SEXP seqtype){
 			ndiff[i][j]++;
 		      }
 		  }
+		  
+		  if (gap_option == 1)
+		  	{
+			if (seq[i][k] == '-'  && seq[j][k] != '-' && seq[j][k] != 'N' && seq[j][k] != 'X')
+				{
+				nbases++;
+				ndiff[j][i]++;
+				ndiff[i][j]++;
+				}
+			if (seq[j][k] == '-'  && seq[i][k] != '-' && seq[i][k] != 'N' && seq[i][k] != 'X')
+				{
+				nbases++;
+				ndiff[j][i]++;
+				ndiff[i][j]++;
+				}
+			
+			}
 	      }
 
 	      else if(mat_number == 1 && seq_type == 0){
