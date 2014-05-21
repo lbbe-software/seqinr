@@ -105,7 +105,6 @@ SEXP read_mase(SEXP nomfic)
     error("Can't open file");
   }
   
-  
   c1 = 0;
   nb_seq = 0;
   lg = lgc = 0;
@@ -169,9 +168,14 @@ SEXP read_mase(SEXP nomfic)
  while(fgets(string, MAXSTRING, fic) != NULL) {
    numline++;
    string[MAXSTRING] = 0;
-   
+   if ((string[0] != ';') && (numline == 1))
+   	{
+	error("Not a MASE file"); /* check format, thanks to J.H. Troesemeier */
+	goto fini;
+	}
    
    c2 = string[0];
+   
    if(string[0] == ';' && string[1] != ';') {
      strcat(aln[ii + 1].com, string);
         }
@@ -185,7 +189,8 @@ SEXP read_mase(SEXP nomfic)
      if((int) strlen(string) >= (MAXMNMASE - 1)) {
        REprintf("Error. Maximum sequance name is   %d characters\n", MAXMNMASE);
        error("sequence name too long!");
-     }
+     } 
+     
      strcpy(aln[ii].mn, string);
      
      lg = 0;
@@ -233,7 +238,7 @@ for(i=0;i<nb_seq;i++){
  SET_ELEMENT(essai,2,listseq);
  SET_ELEMENT(essai,3,listcom);
  
-  
+ fini: 
  free_mase(aln,nb_seq);
  UNPROTECT(5);
  
