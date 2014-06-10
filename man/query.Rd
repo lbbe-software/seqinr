@@ -36,6 +36,8 @@ Selection criteria (no space before the = sign) are:
   \item{AU=name}{seqs from references having specified author (only last name, no initial)}
   \item{AC=accessionno}{seqs attached to specified accession number}
   \item{N=seqname}{seqs of given name (ID or LOCUS); @ wildcard possible}
+  \item{NS=taxon_name}{taxon of given name; @ wildcard possible}
+  \item{NK=keyword_name}{keyword of given name; @ wildcard possible}
   \item{Y=year}{seqs published in specified year; > and < can be used instead of =}
   \item{O=organelle}{seqs from specified organelle named following defined code (e.g., chloroplast)}
   \item{M=molecule}{seqs from specified molecule as named in ID or LOCUS annotation records}
