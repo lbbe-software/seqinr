@@ -123,7 +123,7 @@ query <- function(listname, query, socket = autosocket(), invisible = TRUE, verb
   result <- list(call = match.call(), name = listname, nelem = nelem, typelist = typelist, 
     req = req, socket = socket)
   class(result) <- c("qaw")
-  assign(listname, result, envir = .GlobalEnv)
+  assign(listname, result, envir = .seqinrEnv)
 }
 
 #
