@@ -27,7 +27,7 @@
 \examples{
 \dontrun{ 
   ### Need internet connection
-  choosebank("hovergendna")
+  choosebank("emblTP")
   mylist <- query("mylist", "AC=AB000425")	
   plot(mylist$req[[1]])
   }
