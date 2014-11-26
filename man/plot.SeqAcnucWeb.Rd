@@ -28,7 +28,7 @@
 \dontrun{ 
   ### Need internet connection
   choosebank("emblTP")
-  mylist <- query("mylist", "AC=AB000425")	
+  mylist <- query("mylist", "AC=AB078009")	
   plot(mylist$req[[1]])
   }
 }
