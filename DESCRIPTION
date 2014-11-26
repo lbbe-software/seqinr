@@ -10,6 +10,7 @@ Description: Exploratory data analysis and data visualization
   for biological sequence (DNA and protein) data. Include also
   utilities for sequence data management under the ACNUC system.
 License: GPL (>= 2)
+SystemRequirements: zlib headers and library. 
 URL: http://seqinr.r-forge.r-project.org/, Mailing list: http://r-forge.r-project.org/mail/?group_id=220
 ZipData:no
 LazyData:no
