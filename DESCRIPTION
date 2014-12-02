@@ -1,16 +1,21 @@
 Package: seqinr
-Version: 3.1-1
-Date: 2014-11-26
-Title: Biological Sequences Retrieval and Analysis 
+Version: 3.1-2
+Date: 2014-12-02
+Title: Biological Sequences Retrieval and Analysis
 Author: Delphine Charif and Jean R. Lobry and Anamaria Necsulea and Leonor Palmeira and Simon Penel and Guy Perriere
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
 Depends: ade4, R (>= 2.10.0)
 Suggests: segmented
 Description: Exploratory data analysis and data visualization
-  for biological sequence (DNA and protein) data. Include also
+  for biological sequence (DNA and protein) data.  Includes also
   utilities for sequence data management under the ACNUC system.
 License: GPL (>= 2)
-SystemRequirements: zlib headers and library. 
-URL: http://seqinr.r-forge.r-project.org/, Mailing list: http://r-forge.r-project.org/mail/?group_id=220
-ZipData:no
-LazyData:no
+SystemRequirements: zlib headers and library.
+URL: http://seqinr.r-forge.r-project.org/, Mailing list:
+        http://r-forge.r-project.org/mail/?group_id=220
+ZipData: no
+LazyData: no
+Packaged: 2014-12-02 08:21:39 UTC; ripley
+NeedsCompilation: yes
+Repository: CRAN
+Date/Publication: 2014-12-02 09:36:00
