@@ -54,13 +54,9 @@ regions in nucleic acid sequences. \emph{Comput. Appl. Biosci.}, \bold{3}, 287--
 }
 \seealso{\code{\link{draw.recstat}}, \code{\link{test.li.recstat}}, \code{\link{test.co.recstat}}}
 \examples{
-\dontrun{
-library(seqinr)
-library(ade4)
-ff <- system.file("sequences/ECOUNC.fsa", package = "seqinr2")
+ff <- system.file("sequences/ECOUNC.fsa", package = "seqinr")
 seq <- read.fasta(ff)
 rec <- recstat(seq[[1]], seqname = getName(seq))
-}
 }
 \keyword{correspondence analysis}
 \keyword{sequence}
