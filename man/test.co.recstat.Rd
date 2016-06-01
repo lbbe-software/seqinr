@@ -39,14 +39,10 @@ predicted, and to 0 if not.
 \author{Clerc, O. and Perriere, G.}
 \seealso{\code{\link{test.li.recstat}}}
 \examples{
-\dontrun{
-library(seqinr)
-library(ade4)
-ff <- system.file("sequences/ECOUNC.fsa", package = "seqinr2")
+ff <- system.file("sequences/ECOUNC.fsa", package = "seqinr")
 seq <- read.fasta(ff)
 rec <- recstat(seq[[1]], seqname = getName(seq))
 test.co.recstat(rec)
-}
 }
 \keyword{sequence}
 \keyword{correspondence analysis}
