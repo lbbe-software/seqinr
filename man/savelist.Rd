@@ -35,7 +35,7 @@ of \code{savelist}}
 \dontrun{ 
   ### Need internet connection
   choosebank("emblTP")
-  query("mylist", "sp=felis catus et t=cds", virtual=TRUE)
+  mylist <- query("mylist", "sp=felis catus et t=cds", virtual=TRUE)
   savelist(glr("mylist"))
   # 603 sequence mnemonics written into file: MYLIST.mne 
   savelist(glr("mylist"), type = "A")
