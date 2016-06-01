@@ -42,7 +42,7 @@ a list with the following 4 components:
 \dontrun{ 
   ### Need internet connection
   choosebank("emblTP")
-  query("mylist", "sp=felis catus et t=cds", virtual=TRUE)
+  mylist <- query("mylist", "sp=felis catus et t=cds", virtual=TRUE)
   getliststate(glr("mylist")) # SQ, MYLIST, 603, FALSE
   gln(glr("mylist")) # MYLIST (upper case letters on server)
   closebank()
