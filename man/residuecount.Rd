@@ -28,7 +28,7 @@ NA in case of problem.
 \dontrun{ 
   ### Need internet connection
   choosebank("emblTP")
-  query("mylist", "t=CDS", virtual = TRUE)
+  mylist <- query("mylist", "t=CDS", virtual = TRUE)
   stopifnot(residuecount(glr("mylist")) == 1611439240)
   stopifnot(is.na(residuecount(glr("unknowlist")))) # A warning is issued
   }
