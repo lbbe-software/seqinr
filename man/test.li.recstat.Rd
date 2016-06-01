@@ -40,14 +40,10 @@ indicator equal to 1 if a putative CDS is predicted, and to 0 if not.
 \author{Clerc, O. and Perriere, G.}
 \seealso{\code{\link{test.co.recstat}}}
 \examples{
-\dontrun{
-library(seqinr)
-library(ade4)
-ff <- system.file("sequences/ECOUNC.fsa", package = "seqinr2")
+ff <- system.file("sequences/ECOUNC.fsa", package = "seqinr")
 seq <- read.fasta(ff)
 rec <- recstat(seq[[1]], seqname = getName(seq))
 test.li.recstat(rec)
-}
 }
 \keyword{sequence}
 \keyword{correspondence analysis}
