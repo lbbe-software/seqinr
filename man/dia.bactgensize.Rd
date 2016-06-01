@@ -77,7 +77,8 @@ and metagenomic projects and their associated metadata.
 #
   \dontrun{
   # Need internet connection
-  dia.bactgensize(source = "http://www.genomesonline.org/DBs/goldtable.txt")
+  # The URL is no more accessible.
+  # dia.bactgensize(source = "http://www.genomesonline.org/DBs/goldtable.txt")
   }
 }
 \keyword{ utilities }
