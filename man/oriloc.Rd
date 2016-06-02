@@ -7,16 +7,16 @@ replication in procaryotic genomes. The program discriminates
 between codon positions.
 }
 \usage{
-oriloc(seq.fasta ="ftp://pbil.univ-lyon1.fr/pub/seqinr/data/ct.fasta",
- g2.coord = "ftp://pbil.univ-lyon1.fr/pub/seqinr/data/ct.predict",
+oriloc(seq.fasta = system.file("sequences/ct.fasta", package ="seqinr"),
+ g2.coord = system.file("sequences/ct.predict", package = "seqinr"),
  glimmer.version = 3,
 oldoriloc = FALSE, gbk = NULL, clean.tmp.files = TRUE, rot = 0)
 }
 \arguments{
   \item{seq.fasta}{Character: the name of a file which contains the DNA sequence
     of a bacterial chromosome in fasta format. The default value,
-   \code{ftp://pbil.univ-lyon1.fr/pub/seqinr/data/ct.fasta}, is
-    to use the fasta file \code{ct.fasta} which is available at the on the pbil server. This is the file
+   \code{system.file("sequences/ct.fasta", package ="seqinr")} is
+    the fasta file \code{ct.fasta}. This is the file
     for the complete genome sequence of \emph{Chlamydia trachomatis}
     that was used in Frank and Lobry (2000). You can replace
     this by something like \code{seq.fasta = "myseq.fasta"} to work
