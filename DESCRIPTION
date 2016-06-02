@@ -1,8 +1,9 @@
+Encoding: UTF-8
 Package: seqinr
 Version: 3.1-5
-Date: 2016-04-27
+Date: 2016-06-02
 Title: Biological Sequences Retrieval and Analysis
-Author: Delphine Charif and Jean R. Lobry and Anamaria Necsulea and Leonor Palmeira and Simon Penel and Guy Perriere
+Author: Delphine Charif and Jean R. Lobry and Anamaria Necsulea and Leonor Palmeira and Simon Penel and Guy Perrière
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
 Imports: ade4
 Depends: R (>= 2.10.0)
@@ -14,9 +15,5 @@ License: GPL (>= 2)
 SystemRequirements: zlib headers and library.
 URL: http://seqinr.r-forge.r-project.org/, Mailing list:
         http://r-forge.r-project.org/mail/?group_id=220
-ZipData: no
-LazyData: no
-Packaged: 2014-12-02 08:21:39 UTC; ripley
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2014-12-02 09:36:00
