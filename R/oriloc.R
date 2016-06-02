@@ -6,7 +6,7 @@
 ########################################################################
 
 oriloc <- function(
-  seq.fasta = system.file("sequences/ct.fasta", package ="seqinr"),
+  seq.fasta = system.file("sequences/ct.fasta.gz", package ="seqinr"),
   g2.coord = system.file("sequences/ct.predict", package = "seqinr"),
   glimmer.version = 3,
   oldoriloc = FALSE,
