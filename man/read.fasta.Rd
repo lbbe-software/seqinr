@@ -95,6 +95,12 @@ no more valid since seqinR >= 2.0-6. Just use \code{file} instead.
   mySmallProtein <- read.fasta(file = smallFastaFile, as.string = TRUE, seqtype = "AA")[[1]]
   stopifnot(mySmallProtein == "SEQINRSEQINRSEQINRSEQINR*")
 #
+# Simple sanity check with the gzipped version of the same small FASTA file:
+#
+  smallFastaFile <- system.file("sequences/smallAA.fasta.gz", package = "seqinr")
+  mySmallProtein <- read.fasta(file = smallFastaFile, as.string = TRUE, seqtype = "AA")[[1]]
+  stopifnot(mySmallProtein == "SEQINRSEQINRSEQINRSEQINR*")
+#
 # Example of a DNA file in FASTA format:
 #
   dnafile <- system.file("sequences/malM.fasta", package = "seqinr")
