@@ -7,9 +7,10 @@
   prokaryotic chromosomes.
   }
 
-\usage{rearranged.oriloc(
-    seq.fasta =  system.file("sequences/ct.fasta.gz", package = "seqinr"),
-    g2.coord = system.file("sequences/ct.predict", package = "seqinr")}
+\usage{
+rearranged.oriloc(seq.fasta = system.file("sequences/ct.fasta.gz", package = "seqinr"),
+  g2.coord = system.file("sequences/ct.predict", package = "seqinr"))
+}
 
 \arguments{
 \item{seq.fasta}{The path of the file containing a FASTA-format
