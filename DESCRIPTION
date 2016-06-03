@@ -4,7 +4,7 @@ Version: 3.1-5
 Date: 2016-06-03
 Title: Biological Sequences Retrieval and Analysis
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
-             person(c("Jean","R.") "Lobry", role = c("aut", "cre"), email = "jean.lobry@univ-lyon1.fr"),
+             person(c("Jean","R."), "Lobry", role = c("aut", "cre"), email = "jean.lobry@univ-lyon1.fr"),
              person("Anamaria", "Necşulea", role = "ctb"),
              person("Leonor", "Palmeira", role = "ctb"),
              person("Simon", "Penel", role = c("aut", "cre"), email = "simon.penel@univ-lyon1.fr"),
@@ -21,4 +21,3 @@ SystemRequirements: zlib headers and library.
 URL: http://seqinr.r-forge.r-project.org/, Mailing list:
         http://r-forge.r-project.org/mail/?group_id=220
 NeedsCompilation: yes
-Repository: CRAN
