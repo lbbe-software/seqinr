@@ -5,9 +5,8 @@ Date: 2016-06-02
 Title: Biological Sequences Retrieval and Analysis
 Author: Delphine Charif and Jean R. Lobry and Anamaria Necsulea and Leonor Palmeira and Simon Penel and Guy Perrière
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
-Imports: ade4
+Imports: ade4,segmented
 Depends: R (>= 2.10.0)
-Suggests: segmented
 Description: Exploratory data analysis and data visualization
   for biological sequence (DNA and protein) data.  Includes also
   utilities for sequence data management under the ACNUC system.
