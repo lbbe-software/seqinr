@@ -11,7 +11,7 @@ Authors@R: c(person("Delphine", "Charif", role = "aut"),
              person("Leonor", "Palmeira", role = "ctb"),
              person("Simon", "Penel", role = "cre", email = "simon.penel@univ-lyon1.fr"),
              person("Guy", "Perrière", role = "ctb"))
-Author: Delphine Charif [aut], Olivier Clerc [ctb], Olivier Clerc [ctb], Jean R. Lobry [aut], Anamaria Necşulea [ctb], Leonor Palmeira [ctb], Simon Penel [cre], Guy Perrière [ctb]
+Author: Delphine Charif [aut], Olivier Clerc [ctb], Carolin Frank [ctb], Jean R. Lobry [aut], Anamaria Necşulea [ctb], Leonor Palmeira [ctb], Simon Penel [cre], Guy Perrière [ctb]
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
 Imports: ade4,segmented
 Depends: R (>= 2.10.0)
