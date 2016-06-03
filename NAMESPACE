@@ -1,7 +1,17 @@
 # Export all names
 useDynLib(seqinr, .registration = TRUE)
 exportPattern(".")
-importFrom(ade4,dudi.coa)
+importFrom("ade4", "dudi.coa")
+importFrom("grDevices", "col2rgb", "grey", "rainbow", "rgb")
+importFrom("graphics", "abline", "axis", "box", "dotchart", "hist",
+             "image", "legend", "lines", "mtext", "par", "plot",
+             "plot.new", "plot.window", "points", "polygon", "rect",
+             "segments", "text", "title")
+importFrom("stats", "as.dist", "complete.cases", "cor", "density",
+             "dnorm", "integrate", "kruskal.test", "lm", "nlm",
+             "optimize", "runif", "splinefun", "t.test")
+importFrom("utils", "data", "download.file", "packageDescription",
+             "read.table", "str", "tail")
 S3method(as.matrix, alignment)
 S3method(getAnnot, SeqAcnucWeb)
 S3method(getAnnot, SeqFastaAA)
