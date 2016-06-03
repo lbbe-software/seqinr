@@ -92,7 +92,7 @@ zscore(sequence, simulations = NULL, modele, exact = FALSE, alphabet = s2c("acgt
 
   \code{citation("seqinr")}
 }
-\author{Leonor Palmeira and J.R. Lobry with suggestions from Avril Coghlan.}
+\author{L. Palmeira, J.R. Lobry with suggestions from A. Coghlan.}
 \seealso{ \code{\link{permutation}} }
 \examples{
 \dontrun{

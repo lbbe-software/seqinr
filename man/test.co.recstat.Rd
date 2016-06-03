@@ -36,7 +36,7 @@ two Stop codons. Columns \code{Start} and \code{End} give the location of starti
 positions of the region; and \code{CDS} is a binary indicator equal to 1 if a putative CDS is
 predicted, and to 0 if not.
 }
-\author{Clerc, O. and Perriere, G.}
+\author{O. Clerc, G. Perrière}
 \seealso{\code{\link{test.li.recstat}}}
 \examples{
 ff <- system.file("sequences/ECOUNC.fsa", package = "seqinr")

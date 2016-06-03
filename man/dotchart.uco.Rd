@@ -38,7 +38,7 @@ An invisible list with components:
 Monterey, CA: Wadsworth. 
 \code{citation("seqinr")}
 }
-\author{ J.R. Lobry }
+\author{J.R. Lobry}
 \seealso{ \code{\link{dotchart}}, \code{\link{uco}}, \code{\link{aaa}},
 \code{\link{translate}} }
 \examples{

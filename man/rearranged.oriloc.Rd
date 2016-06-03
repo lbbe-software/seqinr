@@ -57,12 +57,12 @@ slope on the rearranged nucleotide skews.
 }
 
 \references{
-  Necsulea, A. and Lobry, J.R. (2007) A New Method for Assessing the 
+  Necşulea, A. and Lobry, J.R. (2007) A New Method for Assessing the 
   Effect of Replication on DNA Base Composition Asymmetry.
   \emph{Molecular Biology and Evolution}, \bold{24}:2169-2179.
 }
 
-\author{A. Necsulea}
+\author{A. Necşulea}
 \seealso{ \code{\link{oriloc}}, \code{\link{draw.rearranged.oriloc}},
   \code{\link{extract.breakpoints}}  }
 

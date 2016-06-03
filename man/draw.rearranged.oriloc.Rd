@@ -30,11 +30,11 @@
 }
 
 \references{
-  Necsulea, A. and Lobry, J.R. (2007) A New Method for Assessing the 
+  Necşulea, A. and Lobry, J.R. (2007) A New Method for Assessing the 
   Effect of Replication on DNA Base Composition Asymmetry.
   \emph{Molecular Biology and Evolution}, \bold{24}:2169-2179.
 }
-\author{Jean R. Lobry and A. Necsulea }
+\author{J.R. Lobry, A. Necşulea}
 \seealso{ \code{\link{rearranged.oriloc}},
   \code{\link{extract.breakpoints}}  }
 

@@ -102,7 +102,7 @@ Microbial gene identification using interpolated Markov models,
 
 \code{citation("seqinr")}
 }
-\author{ J.R. Lobry and A.C. Frank}
+\author{J.R. Lobry, A.C. Frank}
 \seealso{ \code{\link{draw.oriloc}}, \code{\link{rearranged.oriloc}} }
 
 \note{ The method works only for genomes having a single origin of replication 

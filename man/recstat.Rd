@@ -45,7 +45,7 @@ Gautier (1987), the minimal sequence length is around 500 bp. The method can be 
 prokaryotic and eukaryotic sequences. Also, only the four first factors of the CA are kept.
 Indeed, most of the time, only the first factor is relevant in order to detect CDS.
 }
-\author{Clerc, O. and Perriere, G.}
+\author{O. Clerc, G. Perrière}
 \references{The original paper describing recstat is:\cr
 
 Fichant, G., Gautier, C. (1987) Statistical method for predicting protein coding

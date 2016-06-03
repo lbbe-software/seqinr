@@ -80,7 +80,7 @@ no more valid since seqinR >= 2.0-6. Just use \code{file} instead.
 
   \code{citation("seqinr")}
 }
-\author{ D. Charif, J.R. Lobry }
+\author{D. Charif, J.R. Lobry}
 \seealso{
   \code{\link{write.fasta}} to write sequences in a FASTA file, 
   \code{\link{gb2fasta}} to convert a GenBank file into a FASTA file,

@@ -22,7 +22,7 @@
 
 \code{citation("seqinr")}
 }
-\author{D. Charif and J.R. Lobry}
+\author{D. Charif, J.R. Lobry}
 \seealso{\code{\link{getType}}, \code{\link{query}} }
 \examples{
 \dontrun{ 

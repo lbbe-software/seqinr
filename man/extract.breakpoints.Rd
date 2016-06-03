@@ -55,12 +55,13 @@ values for the breakpoints.
 \references{
 
   \code{citation("segmented")}
-
   
-  Necsulea, A. and Lobry, J.R. (in prep) A novel method for assessing
+  Necşulea, A. and Lobry, J.R. (in prep) A novel method for assessing
   the effect of replication on DNA base composition asymmetry.
+  \emph{Molecular Biology and Evolution},\bold{24}:2169-2179.
+
 }
-\author{A. Necsulea}
+\author{A. Necşulea}
 \seealso{ \code{\link{oriloc}}, \code{\link{draw.rearranged.oriloc}},
   \code{\link{rearranged.oriloc}}  }
 

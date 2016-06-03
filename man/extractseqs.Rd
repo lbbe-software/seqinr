@@ -69,7 +69,7 @@ Format "coordinates" extract coordinate data; start > end indicates the compleme
 \references{ 
 \code{citation("seqinr")}
 }
-\author{S.Penel}
+\author{S. Penel}
 \seealso{
   \code{\link{choosebank}}, 
   \code{\link{query}}

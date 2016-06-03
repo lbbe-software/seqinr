@@ -93,7 +93,7 @@ Gouy, M., Gautier, C., Milleret, F. (1985) System analysis and nucleic acid sequ
 
 \code{citation("seqinr")}
 }
-\author{J.R. Lobry & D. Charif}
+\author{J.R. Lobry, D. Charif}
 \note{Most of the documentation was imported from ACNUC help
 files written by Manolo Gouy}
 \seealso{
