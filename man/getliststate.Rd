@@ -31,7 +31,7 @@ a list with the following 4 components:
 
 \code{gln} is a shortcut for \code{getliststate(lrank, ...)$name}
 }
-\references{ \url{http://pbil.univ-lyon1.fr/databases/acnuc.html}
+\references{ \url{http://doua.prabi.fr/databases/acnuc.html}
 
 \code{citation("seqinr")}
 }

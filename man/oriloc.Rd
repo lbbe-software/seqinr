@@ -67,10 +67,10 @@ skew in third codon positions.
 
 More illustrated explanations to help understand oriloc outputs
 are available there:
-\url{http://pbil.univ-lyon1.fr/software/Oriloc/howto.html}.\cr
+\url{https://pbil.univ-lyon1.fr/software/Oriloc/howto.html}.\cr
 
 Examples of oriloc outputs on real sequence data are there: 
-\url{http://pbil.univ-lyon1.fr/software/Oriloc/index.html}.\cr
+\url{https://pbil.univ-lyon1.fr/software/Oriloc/index.html}.\cr
 
 The original paper for oriloc:\cr
 Frank, A.C., Lobry, J.R. (2000) Oriloc: prediction of replication

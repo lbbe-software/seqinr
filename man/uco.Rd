@@ -79,7 +79,7 @@ amino-acid usage in thermophilic bacteria.
 
 Charif, D., Thioulouse, J., Lobry, J.R., Perrière, G. (2005) Online 
 Synonymous Codon Usage Analyses with the ade4 and seqinR packages. 
-\emph{Bioinformatics}, \bold{21}:545-547. \url{http://pbil.univ-lyon1.fr/members/lobry/repro/bioinfo04/}.\cr
+\emph{Bioinformatics}, \bold{21}:545-547. \url{https://pbil.univ-lyon1.fr/members/lobry/repro/bioinfo04/}.\cr
 
 Suzuki, H., Brown, C.J., Forney, L.J., Top, E. (2008)
 Comparison of Correspondence Analysis Methods for Synonymous Codon Usage in Bacteria.
