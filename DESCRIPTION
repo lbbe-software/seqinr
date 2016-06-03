@@ -4,10 +4,10 @@ Version: 3.1-5
 Date: 2016-06-03
 Title: Biological Sequences Retrieval and Analysis
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
-             person(c("Jean","R."), "Lobry", role = c("aut", "cre"), email = "jean.lobry@univ-lyon1.fr"),
+             person(c("Jean","R."), "Lobry", role = "aut"),
              person("Anamaria", "Necşulea", role = "ctb"),
              person("Leonor", "Palmeira", role = "ctb"),
-             person("Simon", "Penel", role = c("aut", "cre"), email = "simon.penel@univ-lyon1.fr"),
+             person("Simon", "Penel", role = "cre", email = "simon.penel@univ-lyon1.fr"),
              person("Guy", "Perrière", role = "ctb"))
 Author: Delphine Charif and Jean R. Lobry and Anamaria Necşulea and Leonor Palmeira and Simon Penel and Guy Perrière
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
