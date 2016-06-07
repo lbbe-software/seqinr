@@ -68,6 +68,7 @@ and metagenomic projects and their associated metadata.
 \author{J.R. Lobry}
 \seealso{ \code{\link{density}} }
 \examples{
+  \dontrun{# Need internet connection
 #
 # With a local outdated copy from GOLD:
 #
@@ -75,8 +76,6 @@ and metagenomic projects and their associated metadata.
 #
 # With last GOLD data:
 #
-  \dontrun{
-  # Need internet connection
   # The URL is no more accessible.
   # dia.bactgensize(source = "http://www.genomesonline.org/DBs/goldtable.txt")
   }
