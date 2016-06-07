@@ -76,7 +76,8 @@ no more valid since seqinR >= 2.0-6. Just use \code{file} instead.
   sequence comparison. \emph{Proceedings of the National Academy 
   of Sciences of the United States of America}, \bold{85}:2444-2448
 
-  FIXME: a reference to MAQ when published.
+  According to MAQ's FAQ page \url{http://maq.sourceforge.net/faq.shtml}
+  last consulted 2016-06-07 the MAQ manuscript has not been published.
 
   \code{citation("seqinr")}
 }
