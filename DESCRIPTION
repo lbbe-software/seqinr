@@ -13,6 +13,7 @@ Authors@R: c(person("Delphine", "Charif", role = "aut"),
              person("Guy", "Perrière", role = "ctb"))
 Author: Delphine Charif [aut], Olivier Clerc [ctb], Carolin Frank [ctb], Jean R. Lobry [aut], Anamaria Necşulea [ctb], Leonor Palmeira [ctb], Simon Penel [cre], Guy Perrière [ctb]
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
+BugReports: http://r-forge.r-project.org/mail/?group_id=220
 Imports: ade4,segmented
 Depends: R (>= 2.10.0)
 Description: Exploratory data analysis and data visualization
@@ -20,6 +21,5 @@ Description: Exploratory data analysis and data visualization
   utilities for sequence data management under the ACNUC system.
 License: GPL (>= 2)
 SystemRequirements: zlib headers and library.
-URL: http://seqinr.r-forge.r-project.org/, Mailing list:
-        http://r-forge.r-project.org/mail/?group_id=220
+URL: http://seqinr.r-forge.r-project.org/
 NeedsCompilation: yes
