@@ -164,9 +164,8 @@ no more valid since seqinR >= 2.0-6. Just use \code{file} instead.
 # Example of a MAQ binary fasta file produced with maq fasta2bfa ct.fasta ct.bfa
 # on a platform where .Platform$endian == "little" and .Machine$sizeof.longlong == 8
 #
-\dontrun{
   fastafile <- system.file("sequences/ct.fasta.gz", package = "seqinr")
-  bfafile <- "ftp://pbil.univ-lyon1.fr/pub/seqinr/data/ct.bfa"
+  bfafile <- system.file("sequences/ct.bfa", package = "seqinr")
 
   original <- read.fasta(fastafile, as.string = TRUE, set.att = FALSE)
   bfavers <- read.fasta(bfafile, as.string = TRUE, set.att = FALSE, bfa = TRUE,
@@ -174,6 +173,5 @@ no more valid since seqinR >= 2.0-6. Just use \code{file} instead.
   if(!identical(original, bfavers)){
      warning(paste("trouble reading bfa file on a platform with endian =", 
      .Platform$endian, "and sizeof.longlong =", .Machine$sizeof.longlong))
-  }
   }
 }
