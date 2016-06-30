@@ -22,7 +22,7 @@ The chirochore structure of bacterial genomes is illustrated below by a screensh
 of a part of figure 1 from Lobry (1996). See the example section to reproduce this
 figure.
 
-\if{html}{\figure{gcskewmbe96.jpg}{options: width=400}}
+\if{html}{\figure{gcskewmbe96.pdf}{options: width=400}}
 \if{latex}{\figure{gcskewmbe96.pdf}{options: width=\textwidth}}
 
 
