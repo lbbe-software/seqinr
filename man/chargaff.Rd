@@ -50,7 +50,7 @@ Try \code{example(chargaff)} to mimic figure page 17 in Lobry
 (2000) :
 
 \if{html}{\figure{chargaff.png}{options: width=400}}
-\if{latex}{\figure{chargaff.png}{options: width=\textwidth}}
+\if{latex}{\figure{chargaff.png}{options: width=\\textwidth}}
 
 
 Note that \code{example(chargaff)} gives more details:
