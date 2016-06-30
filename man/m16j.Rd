@@ -18,7 +18,7 @@ D10483, D26562. Ambiguities have been resolved since then and its was
 a chimeric sequence from K-12 strains MG1655 and W3110, the sequence used here is
 from strain MG1655 only (Blattner \emph{et al.} 1997).
 
-The chirochore structure of bacterial genomes is illustrate below by a screenshot
+The chirochore structure of bacterial genomes is illustrated below by a screenshot
 of a part of figure 1 from Lobry (1996). See the example section to reproduce this
 figure.
 
