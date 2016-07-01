@@ -40,7 +40,7 @@ are from Lobry (1997).\cr
 \code{example(aacost)} reproduces figure 2 from Lobry (2004).
 
 \if{html}{\figure{aka.pdf}{options: width=400}}
-\if{latex}{\figure{aka.pdf}{options: width=\\textwidth}}
+\if{latex}{\figure{aka.pdf}{options: width=5cm}}
 
 }
 \source{

@@ -29,14 +29,14 @@ is Moore's law.}
 This is a screenshot from fig. 1 in Lobry (2004):
 
 \if{html}{\figure{lncs2004.pdf}{options: width=400}}
-\if{latex}{\figure{lncs2004.pdf}{options: width=\\textwidth}}
+\if{latex}{\figure{lncs2004.pdf}{options: width=5cm}}
 
 At that time the doubling time was 16.9 months. This is an
 update in 2016 from release 3.1-5 of the seqinr tutorial
 \url{http://seqinr.r-forge.r-project.org/seqinr_3_1-5.pdf}:
 
 \if{html}{\figure{introduction-dbg.pdf}{options: width=400}}
-\if{latex}{\figure{introduction-dbg.pdf}{options: width=\\textwidth}}
+\if{latex}{\figure{introduction-dbg.pdf}{options: width=5cm}}
 
 The doubling time was 18.8 monts in this update. The fit to
 Moore's law is still striking over such a long period.
