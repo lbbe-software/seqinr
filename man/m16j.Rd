@@ -23,7 +23,7 @@ of a part of figure 1 from Lobry (1996). See the example section to reproduce th
 figure.
 
 \if{html}{\figure{gcskewmbe96.pdf}{options: width=400}}
-\if{latex}{\figure{gcskewmbe96.pdf}{options: width=5cm}}
+\if{latex}{\figure{gcskewmbe96.pdf}{options: width=12cm}}
 
 
 }

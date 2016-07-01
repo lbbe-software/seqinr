@@ -22,7 +22,7 @@ The example section allows to reproduce the left part of figure
 2.7 from Palmeira (2007):
 
 \if{html}{\figure{waterabs.jpg}{options: width=400}}
-\if{latex}{\figure{waterabs.jpg}{options: width=5cm}}
+\if{latex}{\figure{waterabs.jpg}{options: width=12cm}}
 
 }
 \references{
