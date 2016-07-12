@@ -6,12 +6,12 @@ Title: Biological Sequences Retrieval and Analysis
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
              person("Olivier", "Clerc", role = "ctb"),
              person("Carolin", "Frank", role = "ctb"),
-             person(c("Jean","R."), "Lobry", role = "aut"),
+             person(c("Jean","R."), "Lobry", role = "aut, cph"),
              person("Anamaria", "Necşulea", role = "ctb"),
              person("Leonor", "Palmeira", role = "ctb"),
              person("Simon", "Penel", role = "cre", email = "simon.penel@univ-lyon1.fr"),
              person("Guy", "Perrière", role = "ctb"))
-Author: Delphine Charif [aut], Olivier Clerc [ctb], Carolin Frank [ctb], Jean R. Lobry [aut], Anamaria Necşulea [ctb], Leonor Palmeira [ctb], Simon Penel [cre], Guy Perrière [ctb]
+Author: Delphine Charif [aut], Olivier Clerc [ctb], Carolin Frank [ctb], Jean R. Lobry [aut, cph], Anamaria Necşulea [ctb], Leonor Palmeira [ctb], Simon Penel [cre], Guy Perrière [ctb]
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
 BugReports: http://r-forge.r-project.org/mail/?group_id=220
 Imports: ade4,segmented
