@@ -1,12 +1,12 @@
 Encoding: UTF-8
 Package: seqinr
-Version: 3.2-1
-Date: 2016-07-13
+Version: 3.3-0
+Date: 2016-07-14
 Title: Biological Sequences Retrieval and Analysis
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
              person("Olivier", "Clerc", role = "ctb"),
              person("Carolin", "Frank", role = "ctb"),
-             person(c("Jean","R."), "Lobry", role = "aut, cph"),
+             person(c("Jean","R."), "Lobry", role = c("aut", "cph")),
              person("Anamaria", "Necşulea", role = "ctb"),
              person("Leonor", "Palmeira", role = "ctb"),
              person("Simon", "Penel", role = "cre", email = "simon.penel@univ-lyon1.fr"),
@@ -17,7 +17,7 @@ BugReports: http://r-forge.r-project.org/mail/?group_id=220
 Imports: ade4,segmented
 Depends: R (>= 2.10.0)
 Description: Exploratory data analysis and data visualization
-  for biological sequence (DNA and protein) data.  Includes also
+  for biological sequence (DNA and protein) data. Includes also
   utilities for sequence data management under the ACNUC system.
 License: GPL (>= 2)
 SystemRequirements: zlib headers and library.
