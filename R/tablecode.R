@@ -9,6 +9,7 @@ precodon = preaa, postcodon = postaa)
 {
   aa1 <- a()
   aa3 <- aaa()
+  data("SEQINR.UTIL")
   codename <- SEQINR.UTIL$CODES.NCBI[numcode, "ORGANISMES"]
   urn <- s2c("tcag") # internal
 #
