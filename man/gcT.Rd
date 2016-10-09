@@ -31,4 +31,7 @@ Data imported into seqinr with the R script given in the last component of the d
 }
 \examples{
 data(gcT)
+with(gcT[["genus"]], plot(Topt, GC, las = 1, 
+  main ="Figure 2 from Galtier & Lobry 1997 (n = 224 genera)",
+  xlab = "Optimal growth temperature [C]", ylab = "Genomic G+C content [%]"))
 }
