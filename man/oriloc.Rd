@@ -81,7 +81,7 @@ boundaries in unannotated bacterial chromosomes. \emph{Bioinformatics},
 A simple informal introduction to DNA-walks:\cr
 Lobry, J.R. (1999) Genomic landscapes. \emph{Microbiology Today},
 \bold{26}:164-165.\cr
-\url{http://www.microbiologysociety.org/download.cfm/docid/C66F92D0-6292-4CB0-83E344560770384C}\cr\cr
+\url{http://seqinr.r-forge.r-project.org/MicrTod_1999_26_164.pdf}\cr\cr
 
 An early and somewhat historical application of DNA-walks:\cr
 Lobry, J.R. (1996) A simple vectorial representation of DNA sequences 
