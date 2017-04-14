@@ -380,9 +380,11 @@ SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks)
   SET_ELEMENT(res, 10, rb0); 
   SET_ELEMENT(res, 11, rb2);
   SET_ELEMENT(res, 12, rb4);
+  
+  if(debugon) Rprintf("C> %s", "End of C level....................\n");
+  
   UNPROTECT(14);
 
-  if(debugon) Rprintf("C> %s", "End of C level....................\n");
   return(res);
 }
 
