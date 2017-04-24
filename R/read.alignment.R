@@ -24,6 +24,8 @@ read.alignment <- function(file, format, forceToLower = TRUE)
   )
 
   ali <- lapply(ali, as.character)
+  #cleaning \r char
+  ali <- lapply(ali, function (x ){gsub ('\r','',x)})
   if(forceToLower) ali[[3]] <- lapply(ali[[3]], tolower)
   if(format == "mase"){
     ali <- list(nb = as.numeric(ali[[1]]), nam = ali[[2]], seq = ali[[3]], com = ali[[4]]) 
