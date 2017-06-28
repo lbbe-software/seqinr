@@ -513,10 +513,10 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
 
 	B0, B2, B4: # of transversional changes at non-synonymous, 2-fold, and 4-fold synonymous sites
 
-	Ces quantités sont les suivantes dans la fonction fastlwl():
-	L0, L2, l4   correspondent à   l[0], l[1], l[2]
-	A0, A2, A4  correspondent à   a[0], a[1], a[2]
-	B0, B2, B4  correspondent à   b[0], b[1], b[2]
+	Ces quantitÃ©s sont les suivantes dans la fonction fastlwl():
+	L0, L2, l4   correspondent Ã    l[0], l[1], l[2]
+	A0, A2, A4  correspondent Ã    a[0], a[1], a[2]
+	B0, B2, B4  correspondent Ã    b[0], b[1], b[2]
    */
    
  
