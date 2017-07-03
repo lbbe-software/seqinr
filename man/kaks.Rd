@@ -50,7 +50,7 @@ As from seqinR 2.0-3, when there is at least one non ACGT base in a codon, this 
 
 Gap-codons (\code{---}) are not used for computations. 
 
-When the alignment does not contain enough information (\emph{i.e.} close to saturation), the Ka and Ks values are forced to 10.
+When the alignment does not contain enough information (\emph{i.e.} close to saturation), the Ka and Ks values are forced to 10 (more exactly to 9.999999).
 
 Negative values indicate that Ka and Ks can not be computed.
 
