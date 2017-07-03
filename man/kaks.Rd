@@ -77,11 +77,11 @@ Ka =  A0 + (L0.B0 + L2.B2) / (L0 + L2)
  data(AnoukResult)
  Anouk <- read.alignment(file = system.file("sequences/Anouk.fasta", package = "seqinr"),
   format = "fasta")	
-## if( ! all.equal(kaks(Anouk), AnoukResult) ) {
-##   warning("Poor numeric results with respect to AnoukResult standard")
-## } else {
-##   print("Results are consistent with AnoukResult standard")
-## }
+ if( ! all.equal(kaks(Anouk), AnoukResult) ) {
+   warning("Poor numeric results with respect to AnoukResult standard")
+ } else {
+   print("Results are consistent with AnoukResult standard")
+ }
 #
 # As from seqinR 2.0-3 the following alignment with out-of-frame gaps
 # should return a zero Ka value.
