@@ -8,13 +8,13 @@ void prefastlwl(double **, double **, double **, double **, double **, double **
 int fastlwl(char **, int, int, double **, double **, double **, double **, double **, double **, double **, double **, 
             double **, double **, double **, double **, double **,double **, double **,double **,double **, double **,double **,double **, double **,double **);
 
-SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks)
+SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks, SEXP gaprm)
 {
   char **seqIn; /* local working copy of sequences */
   char **seq;   /* pointer to original sequences from R object */
   double *tl0[64], *tl1[64], *tl2[64], *tti0[64], *tti1[64], *tti2[64], *ttv0[64], *ttv1[64], *ttv2[64];
   int i, j, totseqs, lgseq, n;
-  int debugon;
+  int debugon, option;
   double *rl[21];
   double **ka, **ks, **vka, **vks;
   double **l0, **l2,**l4;
@@ -75,6 +75,7 @@ SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks)
 
   debugon = INTEGER_VALUE(debugkaks);
   totseqs = INTEGER_VALUE(nbseq);
+  option = INTEGER_VALUE(gaprm);
    
   if(debugon) Rprintf("C> mode degug is on at C level with %d sequences\n", totseqs);
 
@@ -196,7 +197,7 @@ SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks)
   PROTECT(ra0 = NEW_NUMERIC(totseqs*totseqs));
   PROTECT(ra2 = NEW_NUMERIC(totseqs*totseqs));
   PROTECT(ra4 = NEW_NUMERIC(totseqs*totseqs));
-   PROTECT(rb0 = NEW_NUMERIC(totseqs*totseqs));
+  PROTECT(rb0 = NEW_NUMERIC(totseqs*totseqs));
   PROTECT(rb2 = NEW_NUMERIC(totseqs*totseqs));
   PROTECT(rb4 = NEW_NUMERIC(totseqs*totseqs));
  
@@ -258,7 +259,7 @@ SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks)
 /*                                                                            */
 /******************************************************************************/
 
-  reresh(seqIn,totseqs,0);
+  reresh(seqIn, totseqs, option); /* seqIn est modifié par reresh */
 
   for(i = 0 ; i < totseqs ; i++){
     if(debugon) Rprintf("reresh-->%s<--\n", seqIn[i]);
@@ -1073,58 +1074,61 @@ return;
 
 void reresh(char** seq, int nbseq, int option){
 
-/* Si option = 0, toutes les positions avec au moins un gap sont eliminees */
-	
+/* Si option = 0, toutes les positions avec au moins un gap sont éliminées.
+   Sinon, seules les positions avec uniquement des gaps sont éliminées */
 
   int lgseq, l, drapeau, i, j, k;
   char **seqref; 
 
-   seqref = (char **) R_alloc(nbseq, sizeof(char *));
-  
-   lgseq = strlen(seq[1]);
+/* Allocation dynamique du tableau seqref de l'alignement */
 
-   for(i = 0 ; i < nbseq ; i++){
-     seqref[i] = (char*) R_alloc(lgseq + 1, sizeof(char));
-   }
+  seqref = (char **) R_alloc(nbseq, sizeof(char *));
+  lgseq = strlen(seq[1]);
+  for(i = 0 ; i < nbseq ; i++){
+    seqref[i] = (char*) R_alloc(lgseq + 1, sizeof(char));
+  }
 
+  l = -1; /* position de la colonne courante dans seqref */
+  if (option == 0){
+    for(i = 0 ; i < lgseq ; i++){
+      drapeau = 0; /* 0 si pas de gap */
+      for(j = 0 ; j < nbseq; j++){
+        if (*(seq[j] + i) == '-') drapeau = 1;
+      }
+      if (drapeau == 0){ /* on recopie la colonne i de seq dans la colonne l de seqref */
+        l++;
+        for(k = 0 ; k < nbseq ; k++) *(seqref[k] + l) = *(seq[k] + i);
+      }
+    }
+  }
+  else{
+    for(i = 0 ; i < lgseq ; i++){
+      drapeau = 0; /* 1 au premier non gap */
+      for(j = 0 ; j < nbseq ; j++){
+        if (*(seq[j] + i) != '-') {
+          drapeau = 1;
+          break;
+        }
+      }
+      if (drapeau == 1){ /* on recopie la colonne i de seq dans la colonne l de seqref */
+        l++;
+        for(k = 0 ; k < nbseq ; k++) *(seqref[k] + l) = *(seq[k] + i);
+      }
+    }
+  }
 
-	l=-1;
-	if (option==0){
-		for(i=0;i<lgseq;i++){
-			drapeau=0;
-			for(j=0;j<nbseq;j++){
-				if (*(seq[j]+i)=='-') drapeau=1;
-			}
-			if (drapeau==0){
-				l++;
-				for(k=0;k<nbseq;k++) *(seqref[k]+l)=*(seq[k]+i);
-			}	
-		}
-	}
-	else{
-		for(i=0;i<lgseq;i++){
-			drapeau=0;
-			for(j=0;j<nbseq;j++){
-				if (*(seq[j]+i)!='-') {
-					drapeau=1;
-					break;
-				}
-			}
-			if (drapeau==1){
-				l++;
-				for(k=0;k<nbseq;k++) *(seqref[k]+l)=*(seq[k]+i);
-			}		
-		}
-	}
-	for(i=0;i<nbseq;i++){
-		for (j=l+1;j<lgseq;j++) {
-			*(seqref[i]+j)='\0';
-		}
-	}
-	for (i=0;i<nbseq;i++) {
-		for (j=0;j<lgseq;j++){
-			*(seq[i]+j)=*(seqref[i]+j);
-		}
-	}	
+/* Ajout de caractères nuls en fin d'alignement dans seqref */
+  for(i = 0 ; i < nbseq ; i++){
+    for(j = l + 1 ; j < lgseq ; j++) {
+      *(seqref[i] + j) = '\0';
+    }
+  }
+
+/* Recopie de seqref dans seq */
+  for(i = 0 ; i < nbseq ; i++) {
+    for(j = 0 ; j < lgseq ; j++){
+      *(seq[i] + j) = *(seqref[i] + j);
+    }
+  }
 }
 
