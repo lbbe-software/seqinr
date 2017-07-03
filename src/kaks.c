@@ -427,7 +427,7 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
       aaa[3], bb[3], flgseq, va[3], vb[3];
   char cod1[3], cod2[3];
   int i, j, ii, num1, num2, sat, sat1, sat2;
-  sat = sat1 = sat2 = 2;
+  sat = sat1 = sat2 = 2;  
   /*
      Internal check at C level: this should be no more be necessary, I'll keep it just in case. JRL - 26-APR-2009
   */
@@ -436,13 +436,14 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
     REprintf("Fatal error: the number of nucleotide after gap removal is not a multiple of 3.\nPlease report this bug on the seqinr diffusion list.\n");
     return(0); /* Should be R's NA but an int is returned by fastlwl */
   }
+
   for (i = 0; i < nbseq - 1; i++) {
     for (j = i + 1; j < nbseq; j++) {
       l[0] = l[1] = l[2] = 0;
       ti[0] = ti[1] = ti[2] = tv[0] = tv[1] = tv[2] = 0;
       for (ii = 0; ii < lgseq / 3; ii++) {
-        cod1[0] = *(seq[i] + 3 * ii);
-        cod1[1] = *(seq[i] + 3 * ii + 1);
+          cod1[0] = *(seq[i] + 3 * ii);
+          cod1[1] = *(seq[i] + 3 * ii + 1);
 	cod1[2] = *(seq[i] + 3 * ii + 2);
 	cod2[0] = *(seq[j] + 3 * ii);
 	cod2[1] = *(seq[j] + 3 * ii + 1);
@@ -459,7 +460,7 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
 	tv[1] += *(ttv1[num1] + num2);
 	tv[2] += *(ttv2[num1] + num2);
       }
-      l0[i][j]=l[0];      
+      l0[i][j]=l[0];
       l2[i][j]=l[1];
       l4[i][j]=l[2];
       for (ii = 0; ii < 3; ii++) {
@@ -468,13 +469,15 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
 	aaa[ii] = 1 / (1 - 2 * p[ii] - q[ii]);
 	bb[ii] = 1 / (1 - 2 * q[ii]);
 	cc[ii] = (aaa[ii] + bb[ii]) / 2;
-        if (bb[ii] <= 0) {
-	  b[ii] = 10;
+         /* adding the isfinite condition - JLO JUL 2017 */
+        if (bb[ii] <= 0 || !isfinite(bb[ii])) {
+	  b[ii] = 10.0;
 	} else {
 	  b[ii] = 0.5 * (double) log(bb[ii]);
         }
-	if ((aaa[ii] <= 0) || (bb[ii] <= 0)) {
-	  a[ii] = 10;
+          /* adding the isfinite condition - JLO JUL 2017 */
+	if ((aaa[ii] <= 0) || (bb[ii] <= 0) || !isfinite(aaa[ii]) || !isfinite(bb[ii])) {
+	  a[ii] = 10.0;
 	} else {
 	  a[ii] = 0.5 * (double) log(aaa[ii]) - 0.25 * log(bb[ii]);
         }
@@ -482,24 +485,24 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
         vb[ii] = bb[ii] * bb[ii] * q[ii] * (1 - q[ii]) / l[ii];
       }
 
-      if ((a[1] != 10) && (a[2] != 10) && (b[2] != 10)){
+      if ((a[1] < 10) && (a[2] < 10) && (b[2] < 10)){
         ks[i][j] = (l[1] * a[1] + l[2] * a[2]) / (l[2] + l[1]) + b[2];
 	vks[i][j] = (l[1] * l[1]  * va[1] + l[2] * l[2] * va[2]) /  ((l[1] + l[2]) * (l[1]+l[2])) + vb[2] - bb[2] * q[2] * (2 * aaa[2] * p[2] - cc[2] * (1 - q[2]))/(l[1]+l[2]);
       } else {
 	sat1 = 1;
 	vks[i][j]=ks[i][j] = 9.999999;
       }
-      if ((a[0] != 10) && (b[0] != 10) && (b[1] != 10)){
+      if ((a[0] < 10) && (b[0] < 10) && (b[1] < 10)){
         ka[i][j] = a[0] + (l[0] * b[0] + l[1] * b[1]) / (l[0] + l[1]);
 	vka[i][j] = (l[0] * l[0]  * vb[0] + l[1] * l[1] * vb[1]) /  ((l[1] + l[0]) * (l[1]+l[0])) + va[0] - bb[0] * q[0] * (2 * aaa[0] * p[0] - cc[0] * (1 - q[0]))/(l[1]+l[0]);
       } else {
 	vka[i][j]=ka[i][j] = 9.999999;
 	sat2 = 1;
       }
-     a0[i][j]=a[0];      
+     a0[i][j]=a[0];
      a2[i][j]=a[1];
-     a4[i][j]=a[2];     
-     b0[i][j]=b[0];      
+     a4[i][j]=a[2];
+     b0[i][j]=b[0];
      b2[i][j]=b[1];
      b4[i][j]=b[2];
      
