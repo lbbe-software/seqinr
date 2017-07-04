@@ -8,7 +8,7 @@ kaks(x, verbose = FALSE, debug = FALSE, forceUpperCase = TRUE, rmgap = TRUE)
 }
 \arguments{
   \item{x}{ An object of class \code{alignment}, obtained for instance by importing into R the data from an alignment file with the \code{\link{read.alignment}} function. This is typically a set of coding sequences aligned at the protein level, see \code{\link{reverse.align}}.}
-  \item{verbose}{ If TRUE add to the results  the value of L0, L2, L4 (respectively the number of non-synonymous sites, of 2-fold synonymous sites, of 4-fold synonymous sites), A0, A2, A4 (respectively the number of transitional changes at non-synonymous, 2-fold, and 4-fold synonymous sites ) and B0, B2, B4 (respectively the number of transversional changes at non-synonymous, 2-fold, and 4-fold synonymous sites).}
+  \item{verbose}{ If TRUE add to the results  the value of L0, L2, L4 (respectively the frequency of non-synonymous sites, of 2-fold synonymous sites, of 4-fold synonymous sites), A0, A2, A4 (respectively the number of transitional changes at non-synonymous, 2-fold, and 4-fold synonymous sites ) and B0, B2, B4 (respectively the number of transversional changes at non-synonymous, 2-fold, and 4-fold synonymous sites).}
   \item{debug}{ If TRUE turns debug mode on.}
   \item{forceUpperCase}{ If TRUE, the default value, all character in sequences are forced to the upper case
   if at least one 'a', 'c', 'g', or 't' is found in the sequences. 
@@ -22,6 +22,8 @@ kaks(x, verbose = FALSE, debug = FALSE, forceUpperCase = TRUE, rmgap = TRUE)
   \item{ vka }{ variance matrix of Ka }	
 }
 \references{
+Li, W.-H., Wu, C.-I., Luo, C.-C. (1985) A new method for estimating synonymous and nonsynonymous rates of nucleotide substitution considering the relative likelihood of nucleotide and codon changes. \emph{Mol. Biol. Evol}, \bold{2}:150-174\cr
+
 Li, W.-H. (1993) Unbiased estimation of the rates of synonymous and nonsynonymous substitution. 
 \emph{J. Mol. Evol.}, \bold{36}:96-99.\cr 
 
