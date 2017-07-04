@@ -24,16 +24,17 @@ kaks(x, verbose = FALSE, debug = FALSE, forceUpperCase = TRUE, rmgap = TRUE)
 \references{
 Li, W.-H., Wu, C.-I., Luo, C.-C. (1985) A new method for estimating synonymous and nonsynonymous rates of nucleotide substitution considering the relative likelihood of nucleotide and codon changes. \emph{Mol. Biol. Evol}, \bold{2}:150-174\cr
 
-Li, W.-H. (1993) Unbiased estimation of the rates of synonymous and nonsynonymous substitution. 
-\emph{J. Mol. Evol.}, \bold{36}:96-99.\cr 
+Li, W.-H. (1993) Unbiased estimation of the rates of synonymous and nonsynonymous substitution. \emph{J. Mol. Evol.}, \bold{36}:96-99.\cr 
+
+Pamilo, P., Bianchi, N.O. (1993) Evolution of the \emph{Zfx} and \emph{Zfy} genes: Rates and interdependence between genes. \emph{Mol. Biol. Evol}, \bold{10}:271-281\cr
 
 Hurst, L.D. (2002) The Ka/Ks ratio: diagnosing the form of sequence evolution.
 \emph{Trends Genet.}, \bold{18}:486-486.\cr  
 
 The C programm implementing this method was provided by Manolo Gouy. More info is
 needed here to trace back the original C source so as to credit correct source.
-The original FORTRAN-77 code by Chung-I Wu modified by Ken Wolfe is available
-here \url{http://wolfe.gen.tcd.ie/lab/pub/li93/}.\cr
+The original FORTRAN-77 code by Chung-I Wu modified by Ken Wolfe was available
+here \url{http://wolfe.gen.tcd.ie/lab/pub/li93/} but this is no more true as 2017-07-01.\cr
 
 For a more recent discussion about the estimation of Ka and Ks see:\cr
 
@@ -57,14 +58,14 @@ When the alignment does not contain enough information (\emph{i.e.} close to sat
 
 Negative values indicate that Ka and Ks can not be computed.
 
-According to Li (1993) J. Mol. Evol. 36(1):96-99,
+According to Li (1993) and Pamilo and Bianchi (1993),
 the rate of synonymous substitutions Ks is computed as:
 Ks = (L2.A2 + L4.A4) / (L2 + L4)  +  B4
 
 and the rate of non-synonymous substitutions Ka is computed as:
 Ka =  A0 + (L0.B0 + L2.B2) / (L0 + L2) 
 
- }
+}
 \author{D. Charif, J.R. Lobry}
 \seealso{\code{\link{read.alignment}} to import alignments from files, \code{\link{reverse.align}} to align CDS at the aa level,
 \code{\link{kaksTorture}} for test on one-codon CDS.}
