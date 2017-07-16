@@ -392,29 +392,25 @@ SEXP kaks(SEXP sequences, SEXP nbseq, SEXP debugkaks, SEXP gaprm)
 
 int num(char *cod)
 {
-	int             n1, n2, n3;
+  int  n1, n2, n3;
+//MG
+	static const char bases[] = "ACGT";
+	if(strchr(bases, cod[0]) == NULL ||
+	   strchr(bases, cod[1]) == NULL ||
+	   strchr(bases, cod[2]) == NULL) return 64;
+//MG
+  n1 = n2 = n3 = 0;
+  if (cod[0] == 'C') n1 = 1;
+  if (cod[1] == 'C') n2 = 1;
+  if (cod[2] == 'C') n3 = 1;
+  if (cod[0] == 'G') n1 = 2;
+  if (cod[1] == 'G') n2 = 2;
+  if (cod[2] == 'G') n3 = 2;
+  if (cod[0] == 'T') n1 = 3;
+  if (cod[1] == 'T') n2 = 3;
+  if (cod[2] == 'T') n3 = 3;
 
-	n1 = n2 = n3 = 0;
-	if (cod[0] == 'C')
-		n1 = 1;
-	if (cod[1] == 'C')
-		n2 = 1;
-	if (cod[2] == 'C')
-		n3 = 1;
-	if (cod[0] == 'G')
-		n1 = 2;
-	if (cod[1] == 'G')
-		n2 = 2;
-	if (cod[2] == 'G')
-		n3 = 2;
-	if (cod[0] == 'T')
-		n1 = 3;
-	if (cod[1] == 'T')
-		n2 = 3;
-	if (cod[2] == 'T')
-		n3 = 3;
-
-	return 16 * n1 + 4 * n2 + n3;
+  return 16 * n1 + 4 * n2 + n3;
 }
 
 
@@ -451,6 +447,7 @@ int fastlwl(char **seq, int nbseq, int lgseq, double **ka, double **ks,
 	cod2[2] = *(seq[j] + 3 * ii + 2);
 	num1 = num(cod1);
 	num2 = num(cod2);
+	if(num1 == 64 || num2 == 64) continue;//MG ignore - or N-containing codons
 	l[0] += *(tl0[num1] + num2);
 	l[1] += *(tl1[num1] + num2);
 	l[2] += *(tl2[num1] + num2);
@@ -767,43 +764,47 @@ code_mt: des TI syno en site 2-fold qui ont ete comptees normalement
 void titv2(char *cod1, char *cod2, double *ti, double *tv, double* l, int *aa, double **rl, int* pos)
 {
 
-	char            codint1[3], codint2[3];
-	int             i, j, n = 0;
-	double           l1, l2, p1, p2;
+	char            codint1[4], codint2[4];
+	int             i, j, n, aa1, aa2, aaint1, aaint2;
+	double          l1, l2, p1, p2;
 	void            titv1(char *, char *, double, double *, double *,double*);
 
 
-	memcpy(codint1, cod1, 3);
-	memcpy(codint2, cod1, 3);
+        memcpy(codint1, cod1, 3);
+        memcpy(codint2, cod1, 3); /* codint_2_ <-- cod_1_ : no problem */
 	for (i = 0; i < 2; i++) {
-		if (cod1[i] != cod2[i])
+		if (cod1[i] != cod2[i]){
 			codint1[i] = cod2[i];
-		if (cod1[i] != cod2[i])
 			break;
+		}
 	}
 	for (j = i + 1; j <= 2; j++) {
-		if (cod1[j] != cod2[j])
+		if (cod1[j] != cod2[j]){
 			codint2[j] = cod2[j];
-		if (cod1[j] != cod2[j])
 			break;
+		}
 	}
 
-	
-	l1 = *(rl[aa[num(cod1)]] + aa[num(codint1)]) * *(rl[aa[num(codint1)]] + aa[num(cod2)]);
-	l2 = *(rl[aa[num(cod1)]] + aa[num(codint2)]) * *(rl[aa[num(codint2)]] + aa[num(cod2)]);
 
-	p1 = l1 / (l1 + l2);
-	p2 = 1 - p1;
+	aa1=aa[num(cod1)]; aa2=aa[num(cod2)];
+	aaint1=aa[num(codint1)]; aaint2=aa[num(codint2)];
+	
+	l1 = *(rl[aa1] + aaint1) * *(rl[aaint1] + aa2);
+	l2 = *(rl[aa1] + aaint2) * *(rl[aaint2] + aa2);
+	p1 = (l1+l2)? l1 / (l1 + l2) : 0.;
+	p2 = (l1+l2)? 1.-p1 : 0.;
 	for (i=0;i<3;i++) if (pos[i]==0) n=i+1;
 	l[catsite(cod1[0], cod1[1] ,cod1[2], n)]+=0.333333;
 	l[catsite(cod2[0], cod2[1] ,cod2[2], n)]+=0.333333;
 	l[catsite(codint1[0], codint1[1] ,codint1[2], n)]+=0.333333*p1;
 	l[catsite(codint2[0], codint2[1] ,codint2[2], n)]+=0.333333*p2;
+
+
+
 	titv1(cod1, codint1, p1, ti, tv,l);
 	titv1(cod2, codint1, p1, ti, tv,l);
 	titv1(cod1, codint2, p2, ti, tv,l);
 	titv1(cod2, codint2, p2, ti, tv,l);
-
 
 }
 
