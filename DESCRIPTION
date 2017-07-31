@@ -17,7 +17,7 @@ BugReports: http://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/seqinr-f
 Imports: ade4,segmented
 Depends: R (>= 2.10.0)
 Description: Exploratory data analysis and data visualization
-  for biological sequence (DNA and protein) data. Includes also
+  for biological sequence (DNA and protein) data. Seqinr includes 
   utilities for sequence data management under the ACNUC system
   described in Gouy, M. et al. (1984) Nucleic Acids Res.
   12:121-127 <doi:10.1093/nar/12.1Part1.121>
