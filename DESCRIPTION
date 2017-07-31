@@ -1,6 +1,6 @@
 Encoding: UTF-8
 Package: seqinr
-Version: 3.4-2
+Version: 3.4-3
 Date: 2017-07-31
 Title: Biological Sequences Retrieval and Analysis
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
