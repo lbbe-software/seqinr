@@ -119,7 +119,8 @@ data(fasta); stopifnot(identical(fasta, fasta.res))
 # whole headers for sequences names.
 #
 
-whole.header.test <- read.alignment(file = system.file("sequences/LTPs128_SSU_aligned_First_Two.fasta", 
+whole.header.test <- 
+ read.alignment(file = system.file("sequences/LTPs128_SSU_aligned_First_Two.fasta", 
  package = "seqinr"), format = "fasta", whole.header = TRUE)
 whole.header.test$nam
 
