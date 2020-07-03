@@ -40,8 +40,8 @@ extract.breakpoints <- function(rearr.ori,type=c("atfw","atrev","gcfw","gcrev"),
 
     i=0
     while(i<gridsize){
-     
-      initpsi=runif(nbreaks[which(type==t)],min=min(x.breaks),max=max(x.breaks))
+      border=(max(x.breaks)-min(x.breaks))*0.05
+      initpsi = runif(nbreaks[which(type == t)], min = (min(x.breaks)+border),max = (max(x.breaks)- border))
       if(exists("seg")){
         rm(seg)
       }
