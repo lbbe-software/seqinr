@@ -33,7 +33,7 @@ This is a screenshot from fig. 1 in Lobry (2004):
 
 At that time the doubling time was 16.9 months. This is an
 update in 2016 from release 3.1-5 of the seqinr tutorial
-\url{http://seqinr.r-forge.r-project.org/seqinr_3_1-5.pdf}:
+\url{https://seqinr.r-forge.r-project.org/seqinr_3_1-5.pdf}:
 
 \if{html}{\figure{introduction-dbg.pdf}{options: width=400}}
 \if{latex}{\figure{introduction-dbg.pdf}{options: width=12cm}}
