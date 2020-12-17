@@ -17,7 +17,8 @@
   into account when requested.
 }
 \usage{
-GC(seq, forceToLower = TRUE, exact = FALSE, NA.GC = NA, oldGC = FALSE,  alphabet = s2c("acgtswmkryvhdb"))
+GC(seq, forceToLower = TRUE, exact = FALSE, NA.GC = NA, oldGC = FALSE,
+alphabet = s2c("acgtswmkryvhdb"))
 GC1(seq, frame = 0, ...)
 GC2(seq, frame = 0, ...)
 GC3(seq, frame = 0, ...)
