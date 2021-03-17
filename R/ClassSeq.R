@@ -67,7 +67,7 @@ is.SeqAcnucWeb <- function(object) inherits(object, "SeqAcnucWeb")
 print.SeqAcnucWeb <- function(x, ...)
 {
   res <- c(x, attr(x, "length"), attr(x, "frame"), attr(x, "ncbigc"))
-  names(res) <- c("name", "length", "frame", "ncbicg")
+  names(res) <- c("name", "length", "frame", "ncbigc")
   print(res, ...)
 }
 
