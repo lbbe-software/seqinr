@@ -1,8 +1,7 @@
 dia.bactgensize <- function(
   fit = 2, p = 0.5, m1 = 2000, sd1 = 600, m2 = 4500, sd2 = 1000, p3 = 0.05,
   m3 = 9000, sd3 = 1000, maxgensize = 20000,
-  source = c("https://pbil.univ-lyon1.fr/datasets/seqinr/data/goldtable15Dec07.txt",
-    "http://www.genomesonline.org/DBs/goldtable.txt"))
+  source = c("https://pbil.univ-lyon1.fr/datasets/seqinr/data/goldtable15Dec07.txt"))
 {
 #
 # Use local source by default:
@@ -11,11 +10,9 @@ dia.bactgensize <- function(
 #
 # Build source of data string:
 #
-  if(source == "https://pbil.univ-lyon1.fr/datasets/seqinr/data/goldtable15Dec07.txt"){
-    sodtxt <- "Source of data: GOLD (Genomes OnLine Database) 15 Dec 2007"
-  } else {
-    sodtxt <- paste("Source of data: GOLD (Genomes OnLine Database)",date())
-  }
+
+sodtxt <- "Source of data: GOLD (Genomes OnLine Database) 15 Dec 2007"
+
 #
 # Read data from GOLD:
 #
