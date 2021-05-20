@@ -2,7 +2,7 @@
 # Pairwise Distances from Aligned Protein or DNA/RNA Sequences
 #
 
-dist.alignment <- function(x, matrix = c("similarity", "identity"),gap )
+dist.alignment <- function(x, matrix = c("identity", "similarity"),gap )
 {
   #
   # Check arguments:
