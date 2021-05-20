@@ -8,6 +8,8 @@
   The resulting matrix contains the squared root of the pairwise distances.
   For example, if identity between 2 sequences is 80%, the matrix will gives
   the squared root of (1.0 - 0.8) i.e. 0.4472136.
+  Note: seqinr::dist.alignment is the square root version of ape::dist.gene (and
+  not ape::dist.dna).
 
 }
 \usage{
