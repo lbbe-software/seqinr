@@ -76,7 +76,7 @@ The original paper for oriloc:\cr
 Frank, A.C., Lobry, J.R. (2000) Oriloc: prediction of replication
 boundaries in unannotated bacterial chromosomes. \emph{Bioinformatics},
 \bold{16}:566-567.\cr
-\url{https://doi.org/10.1093/bioinformatics/16.6.560}\cr\cr
+\doi{https://doi.org/10.1093/bioinformatics/16.6.560}\cr\cr
 
 A simple informal introduction to DNA-walks:\cr
 Lobry, J.R. (1999) Genomic landscapes. \emph{Microbiology Today},
