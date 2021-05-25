@@ -92,6 +92,18 @@ translate(seq = realcds)
 translate(seq = realcds, frame = 3, sens = "R", numcode = 6)
 # Biologically meaningless, note the in-frame stop codons
 
+# Read from an alignment as suggested by Dr. H. Suzuki
+fasta.res    <- read.alignment(file = system.file("sequences/Anouk.fasta", package = "seqinr"),
+ format = "fasta")
+
+AA1 <- seqinr::getTrans(s2c(fasta.res$seq[[1]]))
+AA2 <- seqinr::translate(s2c(fasta.res$seq[[1]]))
+identical(AA1, AA2)
+
+AA1 <- lapply(fasta.res$seq, function(x) seqinr::getTrans(s2c(x)))
+AA2 <- lapply(fasta.res$seq, function(x) seqinr::translate(s2c(x)))
+identical(AA1, AA2)
+
 \dontrun{
 ## Need internet connection.
 ## Translation of the following EMBL entry:
