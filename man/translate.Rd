@@ -124,16 +124,16 @@ trans1 <- getTrans(trans$req[[1]])
 ## Complex transsplicing operations, the correct frame and the correct
 ## genetic code are automatically used for translation into protein.
 seq <- getSequence(trans$req[[1]])
-translate(seq) == trans1
+identical(translate(seq),trans1)
 #default frame and genetic code are correct
 trans <- query("trans", "N=AB004237")
 trans1 <- getTrans(trans$req[[1]])
 ## Complex transsplicing operations, the correct frame and the correct
 ## genetic code are automatically used for translation into protein.
 seq <- getSequence(trans$req[[1]])
-translate(seq) == trans1
+identical(translate(seq),trans1)
 #default  genetic code is not correct
-translate(seq,numcode=2) == trans1
+identical(translate(seq,numcode=2),trans1)
 #genetic code is 2
 }
 }
