@@ -1,6 +1,6 @@
 Encoding: UTF-8
 Package: seqinr
-Version: 4.2-20
+Version: 4.2-21
 Date: 2022-11-28
 Title: Biological Sequences Retrieval and Analysis
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
@@ -13,7 +13,7 @@ Authors@R: c(person("Delphine", "Charif", role = "aut"),
              person("Guy", "Perrière", role = "ctb"))
 Author: Delphine Charif [aut], Olivier Clerc [ctb], Carolin Frank [ctb], Jean R. Lobry [aut, cph], Anamaria Necşulea [ctb], Leonor Palmeira [ctb], Simon Penel [cre], Guy Perrière [ctb]
 Maintainer: Simon Penel <simon.penel@univ-lyon1.fr>
-BugReports: https://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/seqinr-forum 
+BugReports: https://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/seqinr-forum
 Imports: ade4,segmented
 Depends: R (>= 2.10.0)
 Description: Exploratory data analysis and data visualization
