@@ -19,7 +19,7 @@ Description: Exploratory data analysis and data visualization
   described in Gouy, M. et al. (1984) Nucleic Acids Res.
   12:121-127 <doi:10.1093/nar/12.1Part1.121>.
 URL: https://seqinr.r-forge.r-project.org/, https://github.com/lbbe-software/seqinr
-BugReports: https://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/seqinr-forum, https://github.com/lbbe-software/seqinr/issues
+BugReports: https://github.com/lbbe-software/seqinr/issues
 SystemRequirements: zlib headers and library.
 NeedsCompilation: yes
 Encoding: UTF-8
