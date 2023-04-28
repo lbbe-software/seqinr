@@ -43,7 +43,7 @@ jobs:
       - name: Install libraries for macOS
         if: runner.os == 'macOS'
         run: |
-          brew install gcc
+          brew install gfortran 
           
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
