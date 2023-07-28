@@ -56,7 +56,7 @@ zscore <- function (sequence, simulations = NULL, modele, exact = FALSE, alphabe
         rhopermut <- sapply(seq(simulations),function(x){rho(permutation(sequence =
                                                                              sequence, modele = modele, ...))})
         mean <- sapply(seq(dim(rhopermut)[1]),function(x){mean(rhopermut[x,])})
-        var <- sapply(seq(dim(rhopermut)[1]),function(x){var(rhopermut[x,])})
+        var <- sapply(seq(dim(rhopermut)[1]),function(x){stats::var(rhopermut[x,])})
         zscore <- ((rho(sequence)-mean)/sqrt(var))
     }
     return(zscore)

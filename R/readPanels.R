@@ -15,7 +15,7 @@ readPanels <- function(file,
         # Change all runs of tabulations by a single one:
         toimport <- gsub("\t{2,}", "\t", toimport)
         mycon <- textConnection(toimport)
-        result[[i+1]] <- read.table(mycon, sep = "\t", quote = "")
+        result[[i+1]] <- utils::read.table(mycon, sep = "\t", quote = "")
         close(mycon)
         # remove empty columns
         # (I guess this is no more necessary now that runs of

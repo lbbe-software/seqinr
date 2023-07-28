@@ -10,7 +10,7 @@ baselineabif <- function(rfu, maxrfu = 1000){
     #
     # Compute a kernel density estimate of data:
     #
-    dst <- density(rfu, na.rm = TRUE)
+    dst <- stats::density(rfu, na.rm = TRUE)
     #
     # Choose as baseline the most common value:
     #

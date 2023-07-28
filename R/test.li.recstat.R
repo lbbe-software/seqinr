@@ -45,18 +45,18 @@ test.li.recstat <- function(rec, fac = 1, length.min = 150, stop.max = 0.2, dire
                 # inter-codon, each row correspond to a space inter-stop codon
                 if (frame == 1)
                 {
-                    test1 <- t.test(seg1, seg2)$p.value
-                    test2 <- t.test(seg1, seg3)$p.value
+                    test1 <- stats::t.test(seg1, seg2)$p.value
+                    test2 <- stats::t.test(seg1, seg3)$p.value
                 }
                 if (frame == 2)
                 {
-                    test1 <- t.test(seg2, seg1)$p.value
-                    test2 <- t.test(seg2, seg3)$p.value
+                    test1 <- stats::t.test(seg2, seg1)$p.value
+                    test2 <- stats::t.test(seg2, seg3)$p.value
                 }
                 if (frame == 3)
                 {
-                    test1 <- t.test(seg3, seg1)$p.value
-                    test2 <- t.test(seg3, seg2)$p.value
+                    test1 <- stats::t.test(seg3, seg1)$p.value
+                    test2 <- stats::t.test(seg3, seg2)$p.value
                 }
                 if (test1 < level & test2 < level)
                 {

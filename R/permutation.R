@@ -24,20 +24,20 @@
             split <- splitseq(sequence, frame) #split in codons (frame=starting position of CDS)
             if (prot == FALSE) {
                 new <- c(sequence[0:frame], s2c(c2s(sample(split, 
-                                                           replace = replace))), tail(sequence, (length(sequence) - 
+                                                           replace = replace))), utils::tail(sequence, (length(sequence) - 
                                                                                                      frame)%%3))
             }
             else { #"prot==TRUE" = garder Met et STOP
                 l <- length(split)
                 new <- c(sequence[0:frame], s2c(c2s(c(split[1], sample(split[2:(l - 
-                                                                                    1)], replace = replace), split[l]))), tail(sequence, 
+                                                                                    1)], replace = replace), split[l]))), utils::tail(sequence, 
                                                                                                                                (length(sequence) - frame)%%3))
             }
         }
         else if (modele == "syncodon") { #modele 4 : permute/remplace les codons synonymes
             CDSseq <- sequence[(frame + 1):length(sequence)]
             newCDSseq <- synsequence(CDSseq, numcode = numcode, ucoweight = ucoweight)
-            new <- c(sequence[0:frame], newCDSseq, tail(sequence, 
+            new <- c(sequence[0:frame], newCDSseq, utils::tail(sequence, 
                                                         (length(sequence) - frame)%%3))
         }
         return(new)

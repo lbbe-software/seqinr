@@ -6,5 +6,5 @@ circle <- function(x = 0, y = 0, r = 1, theta = c(0, 360), n = 100, ...){
         xx <- c(xx, x)
         yy <- c(yy, y)
     }
-    polygon(xx, yy, ...)
+    graphics::polygon(xx, yy, ...)
 }

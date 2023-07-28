@@ -40,28 +40,28 @@ dia.db.growth <- function( get.db.growth.out = get.db.growth(),
                            Moore = TRUE, ... )
 {
     embl <- "ftp://ftp.ebi.ac.uk/pub/databases/embl/doc/relnotes.txt"
-    op <- par(no.readonly = TRUE)
-    par( bg = "blue" )
-    par( fg = "yellow" )
-    par( col = "yellow" )
-    par( col.axis = "yellow" )
-    par( col.lab = "yellow" )
-    par( col.main = "yellow" )
-    par( col.sub = "yellow" )
+    op <- graphics::par(no.readonly = TRUE)
+    graphics::par( bg = "blue" )
+    graphics::par( fg = "yellow" )
+    graphics::par( col = "yellow" )
+    graphics::par( col.axis = "yellow" )
+    graphics::par( col.lab = "yellow" )
+    graphics::par( col.main = "yellow" )
+    graphics::par( col.sub = "yellow" )
     
     Nucleotides <- get.db.growth.out$Nucleotides
     Month <- get.db.growth.out$Month
     date <- get.db.growth.out$date
     
-    plot( date, log10(Nucleotides) , pch = 20,
+    graphics::plot( date, log10(Nucleotides) , pch = 20,
           main = paste("The exponential growth of the DDBJ/EMBL/Genbank content\n",
                        "Last update:", 
                        Month[nrow(get.db.growth.out)]),
           xlab = "Year", ylab = "Log10 number of nucleotides",
           sub = paste("Source:", embl),
           ... )
-    abline(lm(log10(Nucleotides)~date),col="yellow")
-    lm1 <- lm(log(Nucleotides)~date)
+    graphics::abline(stats::lm(log10(Nucleotides)~date),col="yellow")
+    lm1 <- stats::lm(log(Nucleotides)~date)
     mu <- lm1$coef[2] # slope
     dbt <- log(2)/mu # doubling time
     dbt <- 12*dbt # in months
@@ -75,15 +75,15 @@ dia.db.growth <- function( get.db.growth.out = get.db.growth(),
         
         for( i in seq(-10,10,by=0.5) )
             if( i != 0 )
-                abline( coef=c(b+i, a), col="black" )
-        legend( x = 1990, y = 7, legend= c(paste("Observed doubling time:", 
+                graphics::abline( coef=c(b+i, a), col="black" )
+        graphics::legend( x = 1990, y = 7, legend= c(paste("Observed doubling time:", 
                                                  round(dbt,1),"months"),"Moore's doubling time : 18 months"), 
                 lty = c(1,1), col = c("yellow","black"))
     }
     else
     {
-        legend( x = 1990, y = 7, legend=paste("Observed doubling time:", 
+        graphics::legend( x = 1990, y = 7, legend=paste("Observed doubling time:", 
                                               round(dbt,1), "months"), lty = 1, col = "yellow")
     }
-    par( op )
+    graphics::par( op )
 } 

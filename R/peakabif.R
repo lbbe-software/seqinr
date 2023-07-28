@@ -34,7 +34,7 @@ peakabif <- function(abifdata,
         }
     }
     
-    if (fig) par(mfrow = c(4, 4), mar = c(2, 2, 0, 0) + 0.2, oma = c(0,0,2,0))
+    if (fig) graphics::par(mfrow = c(4, 4), mar = c(2, 2, 0, 0) + 0.2, oma = c(0,0,2,0))
     
     for (i in 1:npeak) {
         x <- starts[i]:stops[i]
@@ -43,16 +43,16 @@ peakabif <- function(abifdata,
             warning("Not all requested peaks were assigned")
             next
         }
-        spfun <- splinefun(x, y[x], method = method)
-        maxis[i] <- optimize(spfun, interval = range(x), maximum = TRUE)$maximum
+        spfun <- stats::splinefun(x, y[x], method = method)
+        maxis[i] <- stats::optimize(spfun, interval = range(x), maximum = TRUE)$maximum
         heights[i] <- spfun(maxis[i])
-        surfaces[i] <- integrate(spfun, starts[i], stops[i])$value
+        surfaces[i] <- stats::integrate(spfun, starts[i], stops[i])$value
         if (fig) {
             xx <- (x-1)/tscale + tmin
-            plot(xx, y[x], type = "p", las = 1, ylim = range(y), ...)
-            abline(h = thres, col = "red")
-            lines(xx, spfun(x), col = "blue")
-            abline(v = (maxis[i]-1)/tscale + tmin, col = "grey")
+            graphics::plot(xx, y[x], type = "p", las = 1, ylim = range(y), ...)
+            graphics::abline(h = thres, col = "red")
+            graphics::lines(xx, spfun(x), col = "blue")
+            graphics::abline(v = (maxis[i]-1)/tscale + tmin, col = "grey")
         }
     }
     #
@@ -61,7 +61,7 @@ peakabif <- function(abifdata,
     baseline <- baselineabif(abifdata$Data[[DATA]][irange], maxrfu = maxrfu)
     baseline <- baseline/yscale
     
-    if(fig) mtext(paste(deparse(substitute(abifdata)), ",",
+    if(fig) graphics::mtext(paste(deparse(substitute(abifdata)), ",",
                         DATA, ", tmin =", tmin, ", tmax =", tmax, ", thres =", thres, ", npeak =", npeak, ", yscale = ", yscale), side = 3, outer = TRUE)
     
     invisible(list(maxis = (maxis-1) + tmin*tscale, heights = yscale*heights, surfaces = yscale*surfaces, baseline = baseline))

@@ -19,7 +19,7 @@ oriloc <- function(
     {
         tmpgbk <- tempfile(pattern = "orilocgbk")
         if(substr(gbk,1,7)=="http://" || substr(gbk,1,6)=="ftp://" || substr(gbk,1,7)=="file://"){
-            download.file( gbk, destfile = tmpgbk )
+            utils::download.file( gbk, destfile = tmpgbk )
         }
         else{
             file.copy(from = gbk, to = tmpgbk)
@@ -209,7 +209,7 @@ oriloc <- function(
     #
     # Try to get get a correct orientation (same as GC skew)
     #
-    if( cor(skew, y ) < 0 )
+    if( stats::cor(skew, y ) < 0 )
         skew <- -skew
     #
     # Build result

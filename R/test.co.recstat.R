@@ -119,7 +119,7 @@ test.co.recstat <- function(rec, fac = 1, length.min = 150, stop.max = 0.2, win.
             v2 <- tab[seqisize + i,]
             v3 <- tab[2*seqisize + i,]
             v <- c(v1, v2, v3)
-            x <- kruskal.test(v ~ phase)$p.value
+            x <- stats::kruskal.test(v ~ phase)$p.value
             pvalvec <- c(pvalvec, x, (i - 1)*shift + 1)
         }
         pvalvec <- matrix(unlist(pvalvec), byrow = TRUE, ncol = 2)
@@ -190,7 +190,7 @@ test.co.recstat <- function(rec, fac = 1, length.min = 150, stop.max = 0.2, win.
             v2 <- tab[seqisize + i,]
             v3 <- tab[2*seqisize + i,]
             v <- c(v1, v2, v3)
-            x <- kruskal.test(v ~ phase)$p.value
+            x <- stats::kruskal.test(v ~ phase)$p.value
             pvalvec <- c(pvalvec, x, (i - 1)*shift + 1)
         }
         pvalvec <- matrix(unlist(pvalvec), byrow = TRUE, ncol = 2)

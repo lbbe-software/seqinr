@@ -97,25 +97,25 @@ tablecode <- function(numcode = 1, urn.rna = s2c("TCAG"), dia = FALSE,
     #
     if( dia )
     {  
-        op <- par(no.readonly = TRUE)
-        par(bg = "blue")
-        par(fg = "yellow")
-        par(col = "yellow")
-        par(col.axis = "yellow")
-        par(col.lab = "yellow")
-        par(col.main = "yellow")
-        par(col.sub = "yellow")
+        op <- graphics::par(no.readonly = TRUE)
+        graphics::par(bg = "blue")
+        graphics::par(fg = "yellow")
+        graphics::par(col = "yellow")
+        graphics::par(col.axis = "yellow")
+        graphics::par(col.lab = "yellow")
+        graphics::par(col.main = "yellow")
+        graphics::par(col.sub = "yellow")
     }
     
-    plot.new()
-    plot.window(xlim=c(0,100),ylim=c(0,100))
+    graphics::plot.new()
+    graphics::plot.window(xlim=c(0,100),ylim=c(0,100))
     
-    segments( 0, 102, 100, 102, lwd = 2)
-    segments( 0, 0, 100, 0, lwd = 2)
-    segments( 0, 97, 100, 97)
+    graphics::segments( 0, 102, 100, 102, lwd = 2)
+    graphics::segments( 0, 0, 100, 0, lwd = 2)
+    graphics::segments( 0, 97, 100, 97)
     
     
-    text(x=0, y = 98.5, font = 2, adj = c(0, 0),
+    graphics::text(x=0, y = 98.5, font = 2, adj = c(0, 0),
          lab = paste("Genetic code", numcode,":",codename))
     
     urn <- c("t","c","a","g") # internal
@@ -127,21 +127,21 @@ tablecode <- function(numcode = 1, urn.rna = s2c("TCAG"), dia = FALSE,
             {
                 codon <- c(urn[i+1], urn[j+1], urn[k+1])
                 
-                text( x = 100*j/4, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
+                graphics::text( x = 100*j/4, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
                       lab = urn.rna[i+1] )
                 
-                text( x = 100*j/4 + 3, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
+                graphics::text( x = 100*j/4 + 3, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
                       lab = urn.rna[j+1] )
                 
-                text( x = 100*j/4 + 6, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
+                graphics::text( x = 100*j/4 + 6, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
                       lab = urn.rna[k+1] )
                 
                 aminoacid <- aa3[which(aa1 == translate(codon, numcode = numcode))]
-                text( x = 100*j/4 + 12, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
+                graphics::text( x = 100*j/4 + 12, y = 95 - 100*i/4 -5*k, adj = c(-0.5,1.5),
                       lab =  aminoacid )
             }
         }
     }
     if(dia)
-        par(op)
+        graphics::par(op)
 }

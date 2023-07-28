@@ -21,34 +21,34 @@ plotabif <- function(abifdata,
                      ladder.lab = TRUE,
                      ...){
     
-    old.par <- par(no.readonly = TRUE)
-    on.exit(par(old.par))
+    old.par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old.par))
     if(is.null(calibr)){
-        plot(x, y, type = type, las = las, 
+        graphics::plot(x, y, type = type, las = las, 
              xlab = xlab, ylab = ylab, xlim = xlim, ylim = ylim, main = main, ...)
     } else {
         x <- calibr(irange)
         xlim <- range(x)
-        plot(x, y, type = type, las = las, 
+        graphics::plot(x, y, type = type, las = las, 
              xlab = "Size [bp]", ylab = ylab, xlim = xlim, ylim = ylim, main = main, ...)
         tps <- pretty(irange)
-        par(cex=0.5)
-        axis(1, at = calibr(tps), tps/tscale, line = 0.4, col = grey(0.5))
-        par(cex=1)
+        graphics::par(cex=0.5)
+        graphics::axis(1, at = calibr(tps), tps/tscale, line = 0.4, col = grDevices::grey(0.5))
+        graphics::par(cex=1)
         if(!is.null(ladder.bp)){ # Allelic ladder add
-            data(list = allele.names,envir=environment())
+            utils::data(list = allele.names,envir=environment())
             tmp <- get(allele.names)[chanel]
             n <- length(ladder.bp)
             labels <- unlist(tmp)
             col <-  rep("black", n)
             col[grep("\\.", labels)] <- "red"
-            abline(v = ladder.bp, col = col)
+            graphics::abline(v = ladder.bp, col = col)
             if(ladder.lab){
-                text(ladder.bp, y = par("usr")[4], labels, xpd = NA, 
+                graphics::text(ladder.bp, y = graphics::par("usr")[4], labels, xpd = NA, 
                      pos = 3, srt = 45, col = col, cex = 0.8)
             }
         }
     }
-    locpar <- par(no.readonly = TRUE)
+    locpar <- graphics::par(no.readonly = TRUE)
     invisible(locpar)
 }

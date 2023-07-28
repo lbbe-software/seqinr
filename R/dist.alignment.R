@@ -37,5 +37,5 @@ dist.alignment <- function(x, matrix = c("identity", "similarity"),gap = FALSE )
     #
     mat <- matrix(dist, nbseq, nbseq, byrow = TRUE)
     dimnames(mat) <- list(x$nam, x$nam)
-    return( as.dist(mat) )
+    return( stats::as.dist(mat) )
 }

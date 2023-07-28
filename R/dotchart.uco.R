@@ -36,7 +36,7 @@ dotchart.uco <- function(x, numcode = 1, aa3 = TRUE, pt.cex = 0.7,
     if( missing(xlim) ) xlim <- c(0, max(gdata))
     if( aa3 ) levels(groups) <- aaa(levels(groups))
     
-    dotchart(x = x, labels = labels, groups = groups, gdata = gdata,
+    graphics::dotchart(x = x, labels = labels, groups = groups, gdata = gdata,
              pt.cex = pt.cex, pch = pch, gpch = gpch, bg = bg, color = color,
              gcolor = gcolor, lcolor = lcolor, cex = cex, xlim = xlim, 
              offset = offset, ...)

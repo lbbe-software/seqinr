@@ -5,7 +5,7 @@ kaks <- function(x, verbose = FALSE, debug = FALSE, forceUpperCase = TRUE, rmgap
     if(attr(x,"class") != "alignment") stop("object x must be of class alignment")
     if(debug){
         cat("<--- Argument x storage is --->\n")
-        print(str(x))
+        print(utils::str(x))
         cat("<--- Argument x storage is --->\n")
     }
     #
@@ -54,7 +54,7 @@ kaks <- function(x, verbose = FALSE, debug = FALSE, forceUpperCase = TRUE, rmgap
     l <- .Call("kaks", x$seq, x$nb, debug, gaprm, PACKAGE = "seqinr")
     if(debug){
         cat("<--- Result l storage is --->\n")
-        print(str(l))
+        print(utils::str(l))
         print (l)
         cat("<--- Result l storage is --->\n")
     }
@@ -68,7 +68,7 @@ kaks <- function(x, verbose = FALSE, debug = FALSE, forceUpperCase = TRUE, rmgap
     #
     mkresult <- function(k){
         tmp <- matrix( k, x$nb, x$nb, byrow = TRUE, dimnames = list(x$nam, x$nam))
-        as.dist(t(tmp))
+        stats::as.dist(t(tmp))
     }
     #result <- lapply(l[seq_len(4)], mkresult)
     if (verbose)	

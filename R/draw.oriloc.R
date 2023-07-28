@@ -46,28 +46,28 @@ draw.oriloc <- function(ori, main = "Title",
     ticks.y <- (ymax-ymin)/(max(cdsskew) - min(cdsskew))*(ticks - min(cdsskew)) + ymin
     cds.y   <- (ymax-ymin)/(max(cdsskew) - min(cdsskew))*(cdsskew - min(cdsskew)) + ymin
     
-    plot(meancoord, cg, type="l", xlab = xlab,
+    graphics::plot(meancoord, cg, type="l", xlab = xlab,
          ylab = ylab, xlim = c(xmin, xmax), ylim = c(ymin, ymax),
          cex.lab = 1.35, col = cg.col, main = main, lwd = cg.lwd, las = las, ...)
     
-    axis(side = 4, at = ticks.y, labels = ticks, col = cds.col, las = las.right)
+    graphics::axis(side = 4, at = ticks.y, labels = ticks, col = cds.col, las = las.right)
     
     #
     # Add vertical grid when required:
     #
     if(add.grid){
         tmp <- pretty(meancoord)
-        abline(v = tmp, col = "grey", lty=3)
+        graphics::abline(v = tmp, col = "grey", lty=3)
         tmp <- tmp[-length(tmp)] + diff(tmp)/2
-        abline(v = tmp, col = "grey", lty=3)
+        graphics::abline(v = tmp, col = "grey", lty=3)
     }
     
-    lines(meancoord, ta, col = ta.col, lwd = ta.lwd)
-    lines(meancoord, skew, col = sk.col, lwd = sk.lwd)
-    lines(meancoord, cds.y, col = cds.col, lwd = cds.lwd)
+    graphics::lines(meancoord, ta, col = ta.col, lwd = ta.lwd)
+    graphics::lines(meancoord, skew, col = sk.col, lwd = sk.lwd)
+    graphics::lines(meancoord, cds.y, col = cds.col, lwd = cds.lwd)
     
-    mtext(ta.mtext, col = ta.col, adj = 0)
-    mtext(cg.mtext, col = cg.col)
-    mtext(cds.mtext, col = cds.col, adj=1)
+    graphics::mtext(ta.mtext, col = ta.col, adj = 0)
+    graphics::mtext(cg.mtext, col = cg.col)
+    graphics::mtext(cds.mtext, col = cds.col, adj=1)
     
 }

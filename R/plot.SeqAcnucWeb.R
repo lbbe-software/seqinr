@@ -14,8 +14,8 @@ plot.SeqAcnucWeb <- function(x, types = getType()$sname, socket = autosocket(), 
     #
     # Save graphical parameters:
     #
-    old.par <- par(no.readonly = TRUE)
-    on.exit(par(old.par))
+    old.par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old.par))
     
     if(verbose) cat(paste("types:", types, sep = "\n"))
     
@@ -32,12 +32,12 @@ plot.SeqAcnucWeb <- function(x, types = getType()$sname, socket = autosocket(), 
     #
     # Plot organization:
     #
-    par(mar = c(2.1, 0.1, 4.1, 0.1), lend = "square", ljoin = "mitre")
+    graphics::par(mar = c(2.1, 0.1, 4.1, 0.1), lend = "square", ljoin = "mitre")
     cx <- c(0, MotherLength)
     cy <- c(0, 1)
-    plot(cx, cy, ann = FALSE, type = "n", axes = FALSE)
-    axis(1)
-    title(main = paste("Physical position of subsequences on the parent sequence",
+    graphics::plot(cx, cy, ann = FALSE, type = "n", axes = FALSE)
+    graphics::axis(1)
+    graphics::title(main = paste("Physical position of subsequences on the parent sequence",
                        MotherName, "(", MotherLength, "bp )", sep=" "))
     
     #
@@ -83,14 +83,14 @@ plot.SeqAcnucWeb <- function(x, types = getType()$sname, socket = autosocket(), 
             ybottom <- (i - 1)/(n + 1)
             xright <- posi[[i]][[j]][2]
             ytop <- i/(n + 1)
-            rect(xleft, ybottom, xright, ytop, col = i, border = "black", lend = "square", ljoin = "mitre" )
+            graphics::rect(xleft, ybottom, xright, ytop, col = i, border = "black", lend = "square", ljoin = "mitre" )
         }
     }
     
     #
     # Draw legend:
     #
-    legend("top", legend = paste(types, "(", nb, ")", sep = ""), fill = seq_len(n), horiz = TRUE, bty = "n")
+    graphics::legend("top", legend = paste(types, "(", nb, ")", sep = ""), fill = seq_len(n), horiz = TRUE, bty = "n")
     
     resu <- lapply(posi,function(x){lapply(x,unlist)})
     names(resu) <- types

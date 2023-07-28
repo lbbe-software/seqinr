@@ -25,8 +25,8 @@ dotPlot <- function(seq1, seq2, wsize = 1, wstep = 1, nmatch = 1, col = c("white
         "%==%" <- function(x, y) colSums(sapply(x, s2c) == sapply(y, s2c)) >= nmatch
         xy <- outer(wseq1, wseq2, "%==%")
     }
-    image(x = seq(from = 1, to = length(seq1), length = length(wseq1)), 
+    graphics::image(x = seq(from = 1, to = length(seq1), length = length(wseq1)), 
           y = seq(from = 1, to = length(seq2), length = length(wseq2)),
           z = xy, col = col, xlab = xlab, ylab = ylab, ...)
-    box()
+    graphics::box()
 }

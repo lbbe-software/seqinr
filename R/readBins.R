@@ -3,7 +3,7 @@ readBins <- function(file,
     src <- readLines(file)
     iPanel <- which(substr(src, start = 1, stop = 11) == "Panel Name\t")
     mycon <- textConnection(src[1:3])
-    infos <- read.table(mycon, sep = "\t", fill = TRUE, header = FALSE)
+    infos <- utils::read.table(mycon, sep = "\t", fill = TRUE, header = FALSE)
     close(mycon)
     result <- list(infos = infos)
     
@@ -17,7 +17,7 @@ readBins <- function(file,
         locstops <- c(iMark[-1] - 1, length(locsrc))
         for(j in seq_len(length(iMark))){
             mycon <- textConnection(locsrc[locstarts[j]:locstops[j]])
-            locres[[j]] <- read.table(mycon, sep = "", fill = TRUE) # changed
+            locres[[j]] <- utils::read.table(mycon, sep = "", fill = TRUE) # changed
             colnames(locres[[j]])[1:length(colnames)] <- colnames
             close(mycon)
             names(locres)[j] <- unlist(strsplit(locsrc[iMark[j]], split = "\t"))[2]
