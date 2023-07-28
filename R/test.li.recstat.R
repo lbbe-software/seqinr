@@ -36,11 +36,11 @@ test.li.recstat <- function(rec, fac = 1, length.min = 150, stop.max = 0.2, dire
             { # test if space between codons is above the threshold
                 # in each case gets the values between each stop codon for the 3 reading frames and range it in 3 vector seg
                 seg1 <- rec$li[which((vstop[i - 1] - vdep[1:seqisize1])/sizewin <= stop.max &
-                    (vstop[i] - vdep[1:seqisize1])/sizewin >= (1 - stop.max)), fac]
+                                         (vstop[i] - vdep[1:seqisize1])/sizewin >= (1 - stop.max)), fac]
                 seg2 <- rec$li[(which((vstop[i - 1] - vdep[(seqisize1 + 1):(seqisize1 + seqisize2)])/sizewin <= stop.max
-                    & (vstop[i] - vdep[(seqisize1 + 1):(seqisize1 + seqisize2)])/sizewin >= (1 - stop.max)) + seqisize1), fac]
+                                      & (vstop[i] - vdep[(seqisize1 + 1):(seqisize1 + seqisize2)])/sizewin >= (1 - stop.max)) + seqisize1), fac]
                 seg3 <- rec$li[(which((vstop[i - 1] - vdep[(seqisize1 + seqisize2 + 1):(length(vdep))])/sizewin <= stop.max
-                    & (vstop[i] - vdep[(seqisize1 + seqisize2 + 1):(length(vdep))])/sizewin >= (1 - stop.max)) + seqisize1 + seqisize2), fac]
+                                      & (vstop[i] - vdep[(seqisize1 + seqisize2 + 1):(length(vdep))])/sizewin >= (1 - stop.max)) + seqisize1 + seqisize2), fac]
                 # create a table with calculation on those vectors seg then go to next space
                 # inter-codon, each row correspond to a space inter-stop codon
                 if (frame == 1)
