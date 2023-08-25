@@ -1,7 +1,7 @@
 #
 # Read files of aligned sequences in various formats
 #
-read.alignment <- function(file, format, forceToLower = TRUE, oldclustal = TRUE, ...)
+read.alignment <- function(file, format, forceToLower = TRUE, oldclustal = FALSE, ...)
 {
     #
     # Check if the file is an URL:
@@ -87,7 +87,7 @@ read.alignment <- function(file, format, forceToLower = TRUE, oldclustal = TRUE,
         # (if the format present a number at the end of the line )
         if ('FALSE' %in% black) {
           filecontent[i] <- substr(filecontent[i], 1, iend)
-        }        
+        }
       }
       # Concatenation of sequence lines in a single string
       seq <- vector(mode = "list")
