@@ -1,4 +1,4 @@
-dotPlot <- function(seq1, seq2, wsize = 1, wstep = 1, nmatch = 1, col = c("white", "black"), 
+dotPlot <- function(seq1, seq2, wsize = 1, wstep = 1, nmatch = 1, shift = 0, col = c("white", "black"), 
                     xlab = deparse(substitute(seq1)), ylab = deparse(substitute(seq2)), ...){
     #
     # Check arguments:
@@ -9,14 +9,16 @@ dotPlot <- function(seq1, seq2, wsize = 1, wstep = 1, nmatch = 1, col = c("white
     if(wstep < 1) stop("non allowed value for wstep")
     if(nmatch < 1) stop("non allowed value for nmatch")
     if(nmatch > wsize) stop("nmatch > wsize is not allowed")
+    if(shift >= wsize ) stop("shift >= wsize is not allowed")
+    
     #
     # sliding window on sequences:
     #
-    mkwin <- function(seq, wsize, wstep){
-        sapply(seq(from = 1, to = length(seq) - wsize + 1, by = wstep), function(i) c2s(seq[i:(i + wsize - 1)]))
+    mkwin <- function(seq, start,wsize, wstep){
+        sapply(seq(from = start, to = length(seq) - wsize + 1, by = wstep), function(i) c2s(seq[i:(i + wsize - 1)]))
     }
-    wseq1 <- mkwin(seq1, wsize, wstep)
-    wseq2 <- mkwin(seq2, wsize, wstep)
+    wseq1 <- mkwin(seq1,1, wsize, wstep)
+    wseq2 <- mkwin(seq2,1 + shift, wsize, wstep)
     if( nmatch == wsize ){
         # perfect match case
         xy <- outer(wseq1, wseq2, "==")
