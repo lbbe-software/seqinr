@@ -44,6 +44,14 @@ dotchart.uco <- function(x, numcode = 1, aa3 = TRUE, pt.cex = 0.7,
     # Return invisibly for further plots
     #
     result <- list(0)
+    #
+    # Sorting according to groups for nicer results
+    #
+    aordered = rank(groups)
+    x <- x[order(aordered)]
+    labels <- labels[order(aordered)]
+    groups <- groups[order(aordered)]
+    
     result$x <- x
     result$labels <- labels
     result$groups <- groups
