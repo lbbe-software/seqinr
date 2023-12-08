@@ -61,8 +61,7 @@ When called with bank = NA and infobank = TRUE, a data.frame with three columns:
 
 }
 \references{
-For more information about the socket communication protocol with ACNUC please get at \url{https://doua.prabi.fr/databases/acnuc/remote_acnuc.html}.
-To get the release date and content of all the databases located at the pbil, please look at the following url: \url{https://doua.prabi.fr/search/releases}\cr
+For more information about the socket communication protocol with ACNUC please get at \url{https://doua.prabi.fr/databases/acnuc/remote_acnuc.html}.\cr
 Gouy, M., Milleret, F., Mugnier, C., Jacobzone, M., Gautier,C. (1984) ACNUC: a nucleic acid sequence data base and analysis system.
 \emph{Nucl. Acids Res.}, \bold{12}:121-127.\cr
 Gouy, M., Gautier, C., Attimonelli, M., Lanave, C., Di Paola, G. (1985)
