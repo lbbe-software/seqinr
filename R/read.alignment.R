@@ -131,6 +131,7 @@ read.alignment <- function(file, format, forceToLower = TRUE,
 
     #if(forceToLower) ali[[3]] <- lapply(ali[[3]], tolower)
     if(forceToLower) ali[[3]] <- unlist(lapply(ali[[3]], tolower))
+    ali[[3]] <- as.list(ali[[3]])
     if(format == "mase"){
         ali <- list(nb = as.numeric(ali[[1]]), nam = ali[[2]], seq = ali[[3]], com = ali[[4]])
     } else {
