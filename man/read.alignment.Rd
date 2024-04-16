@@ -6,7 +6,8 @@
  These formats are used to store nucleotide or protein multiple alignments.
 }
 \usage{
-read.alignment(file, format, forceToLower = TRUE, seqtype = c("DNA", "AA"), oldclustal = FALSE, ...)
+read.alignment(file, format, forceToLower = TRUE, seqtype = c("DNA", "AA"), 
+    oldclustal = FALSE, ...)
 }
 \arguments{
   \item{file}{the name of the file which the aligned sequences are to be read from.
