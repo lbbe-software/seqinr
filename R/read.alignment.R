@@ -74,6 +74,7 @@ read.alignment <- function(file, format, forceToLower = TRUE,
           nseq <- nseq - 1
           break # alredy seen
         }
+        if (seqname == 'NA')  {break}
         nam[nseq] <- seqname
         nseq <- nseq + 1
       }
@@ -97,12 +98,14 @@ read.alignment <- function(file, format, forceToLower = TRUE,
       # Concatenation of sequence lines in a single string
       seq <- vector(mode = "list")
       for(iseq in seq_len(nseq)){
-        ii <- seq(iseq, length(filecontent), by = nseq)
-        seq[[iseq]] <- paste0(filecontent[ii], collapse = "")
-        if(forceToLower) seq[[iseq]] <- tolower(seq[[iseq]])
+        if (iseq <= length(filecontent)) {
+          ii <- seq(iseq, length(filecontent), by = nseq)
+          seq[[iseq]] <- paste0(filecontent[ii], collapse = "")
+          if(forceToLower) seq[[iseq]] <- tolower(seq[[iseq]])
+        }
       }
-      #
-      return(as.alignment(nb = nseq, nam = nam, seq = seq, com = NA))
+
+      return(as.alignment(nb = length(seq), nam = nam, seq = seq, com = NA))
     }
 
 

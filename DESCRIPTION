@@ -1,6 +1,6 @@
 Package: seqinr
 Title: Biological Sequences Retrieval and Analysis
-Version: 4.2-39
+Version: 4.2-40
 Depends: R (>= 2.10.0)
 Imports: ade4,segmented
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
