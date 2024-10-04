@@ -6,21 +6,20 @@
 [![R-CMD-check](https://github.com/lbbe-software/seqinr/workflows/R-CMD-check/badge.svg)](https://github.com/lbbe-software/seqinr/actions)
 
 
-* seqinr on CRAN https://cran.r-project.org/web/packages/seqinr/index.html
-
-install seqinr from CRAN:
-```
->install.packages("seqinr")
+* `seqinr` on CRAN: https://cran.r-project.org/web/packages/seqinr/index.html
 
 ```
-
-* seqinr on R-forge: https://seqinr.r-forge.r-project.org/
-
-* seqinr on github https://github.com/lbbe-software/seqinr
-
-install seqinr from github:
+install.packages("seqinr")
 
 ```
->library(devtools)
->install_github("lbbe-software/seqinr")
+
+* `seqinr` on R-forge: https://seqinr.r-forge.r-project.org/
+
+No longer updated.
+
+* `seqinr` on GitHub: https://github.com/lbbe-software/seqinr
+
+```
+require("devtools")
+install_github("lbbe-software/seqinr")
 ```
