@@ -1,0 +1,135 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "seqinr",
+  "description": "Exploratory data analysis and data visualization for biological sequence (DNA and protein) data. Seqinr includes utilities for sequence data management under the ACNUC system described in Gouy, M. et al. (1984) Nucleic Acids Res. 12:121-127 <doi:10.1093/nar/12.1Part1.121>.",
+  "name": "seqinr: Biological Sequences Retrieval and Analysis",
+  "relatedLink": ["https://seqinr.r-forge.r-project.org/", "https://CRAN.R-project.org/package=seqinr"],
+  "codeRepository": "https://github.com/lbbe-software/seqinr",
+  "issueTracker": "https://github.com/lbbe-software/seqinr/issues",
+  "license": "https://spdx.org/licenses/GPL-2.0",
+  "version": "4.2.42",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.4.3 (2025-02-28)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Delphine",
+      "familyName": "Charif"
+    },
+    {
+      "@type": "Person",
+      "givenName": ["Jean", "R."],
+      "familyName": "Lobry"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Olivier",
+      "familyName": "Clerc"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Carolin",
+      "familyName": "Frank"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Anamaria",
+      "familyName": "Necşulea"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Leonor",
+      "familyName": "Palmeira"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Guy",
+      "familyName": "Perrière"
+    }
+  ],
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": ["Jean", "R."],
+      "familyName": "Lobry"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Simon",
+      "familyName": "Penel",
+      "email": "simon.penel@univ-lyon1.fr"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 2.10.0"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "ade4",
+      "name": "ade4",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ade4"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "segmented",
+      "name": "segmented",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=segmented"
+    },
+    "SystemRequirements": "zlib headers and library."
+  },
+  "fileSize": "5446.89KB",
+  "citation": [
+    {
+      "datePublished": "2007",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "D.",
+          "familyName": "Charif"
+        },
+        {
+          "@type": "Person",
+          "givenName": "J.R.",
+          "familyName": "Lobry"
+        }
+      ],
+      "name": "Seqin{R} 1.0-2: a contributed package to the {R} project for statistical computing devoted to biological sequences retrieval and analysis.",
+      "description": "{ISBN :} 978-3-540-35305-8",
+      "pagination": "207-232"
+    }
+  ],
+  "releaseNotes": "https://github.com/lbbe-software/seqinr/blob/main/NEWS",
+  "readme": "https://github.com/lbbe-software/seqinr/blob/main/README.md",
+  "contIntegration": "https://github.com/lbbe-software/seqinr/actions"
+}
