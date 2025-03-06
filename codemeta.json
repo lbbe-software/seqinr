@@ -131,5 +131,6 @@
   ],
   "releaseNotes": "https://github.com/lbbe-software/seqinr/blob/main/NEWS",
   "readme": "https://github.com/lbbe-software/seqinr/blob/main/README.md",
-  "contIntegration": "https://github.com/lbbe-software/seqinr/actions"
+  "contIntegration": "https://github.com/lbbe-software/seqinr/actions",
+  "developmentStatus": "https://www.repostatus.org/#active"
 }
