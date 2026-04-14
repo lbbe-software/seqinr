@@ -92,7 +92,7 @@ A problem in multivariate analysis of codon usage data and a possible solution.
 
 Suzuki, H., Brown, C.J., Forney, L.J., Top, E. (2008)
 Comparison of Correspondence Analysis Methods for Synonymous Codon Usage in Bacteria.
-\emph{DNA Research}, \bold{15}:357-365. \url{https://academic.oup.com/dnaresearch/article/15/6/357/513030}.
+\emph{DNA Research}, \bold{15}:357-365. \doi{10.1093/dnares/dsn028}.
 
 }
 \author{D. Charif, J.R. Lobry, G. Perrière}

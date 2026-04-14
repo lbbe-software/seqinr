@@ -88,7 +88,7 @@ zscore(sequence, simulations = NULL, modele, exact = FALSE, alphabet = s2c("acgt
   are not depleted in light-exposed Prokaryotic genomes.
   \emph{Molecular Biology and Evolution},
   \bold{23}:2214-2219.
-  \url{https://academic.oup.com/mbe/article/23/11/2214/1335460}
+  \doi{10.1093/molbev/msl096}
 
   \code{citation("seqinr")}
 }
