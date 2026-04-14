@@ -1,6 +1,6 @@
 Package: seqinr
 Title: Biological Sequences Retrieval and Analysis
-Version: 4.2-42
+Version: 4.2-43
 Depends: R (>= 2.10.0)
 Imports: ade4,segmented
 Authors@R: c(person("Delphine", "Charif", role = "aut"),
@@ -18,7 +18,7 @@ Description: Exploratory data analysis and data visualization
   utilities for sequence data management under the ACNUC system
   described in Gouy, M. et al. (1984) Nucleic Acids Res.
   12:121-127 <doi:10.1093/nar/12.1Part1.121>.
-URL: https://seqinr.r-forge.r-project.org/, https://github.com/lbbe-software/seqinr
+URL: https://github.com/lbbe-software/seqinr
 BugReports: https://github.com/lbbe-software/seqinr/issues
 SystemRequirements: zlib headers and library.
 NeedsCompilation: yes
